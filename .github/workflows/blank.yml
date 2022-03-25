@@ -1,5 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
+
+
+
 name: CI
 
 concurrency:
@@ -38,7 +41,15 @@ on:
         description: 'Environment to run tests against'
         type: environment
         required: true
-
+      node-version:
+        description: 'node-version'
+        required: true
+        default: '16'
+        type: choice
+        options:
+          - 12
+          - 14
+          - 16
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
