@@ -77,6 +77,16 @@ jobs:
           node-version: ${{ matrix.node }}
           persist-credentials: false
 
+      - name: show env.key
+        run: echo ${{secrets.key}}
+
+      - shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.key }}
+        run: |
+          example-command "$SUPER_SECRET"
+
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
