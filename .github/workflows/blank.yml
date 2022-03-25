@@ -102,9 +102,9 @@ jobs:
           SUPER_SECRET: ${{ secrets.KEY }}
         run: |
           echo "$SUPER_SECRET"
-#          git clone git@github.com:miquolone/test.git
           git clone https://github.com/miquolone/test.git
 
+      #          git clone git@github.com:miquolone/test.git
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
