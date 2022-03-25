@@ -95,15 +95,15 @@ jobs:
           git add -A && git commit -m '$*' --allow-empty
           git push -u origin HEAD
           ls ~/.ssh/
-          #git remote set-url origin git@github.com:miquolone/test.git
-          #git remote add origin git@github.com:miquolone/test.git
 
-      - name: Set current datetime as env variable
+      - name: Set current datetime as env variable2
         env:
           TZ: 'Asia/Tokyo'
         run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+        #git remote set-url origin git@github.com:miquolone/test.git
+        #git remote add origin git@github.com:miquolone/test.git
 
-      - name: Create new branch
+      - name: Create new branch2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
