@@ -87,6 +87,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          ssh-keygen -t rsa
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git branch -a
           git config -l
