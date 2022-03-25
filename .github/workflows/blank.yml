@@ -92,7 +92,7 @@ jobs:
         run: |
           git config --global user.name '${GITHUB_ACTOR}'
           git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
-          git remote set-url origin git@github.com:miquolone/test.git
+          git remote set-url origin https://github.com/miquolone/test.git
           git add -A && git commit -m '$*' --allow-empty
           git push -u origin HEAD
 
