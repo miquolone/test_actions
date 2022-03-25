@@ -89,7 +89,7 @@ jobs:
         run: |
           git show 
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
-          git push -u origin fix/hoge_${{ env.CURRENT_DATETIME }}
+          git push origin fix/hoge_${{ env.CURRENT_DATETIME }}
 
       - name: show env.se
         run: echo ${{ secrets.KEY }}
@@ -102,9 +102,6 @@ jobs:
           SUPER_SECRET: ${{ secrets.KEY }}
         run: |
           echo "$SUPER_SECRET"
-          git clone https://github.com/miquolone/test.git
-
-      #          git clone git@github.com:miquolone/test.git
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
