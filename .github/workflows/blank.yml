@@ -77,8 +77,8 @@ jobs:
           node-version: ${{ matrix.node }}
           persist-credentials: false
 
-      - name: show env.KEY
-        run: echo ${{secrets.KEY }}
+      - name: show env.se
+        run: echo ${{ secrets.SE }}
 
       - shell: bash
         env:
