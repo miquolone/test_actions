@@ -77,6 +77,8 @@ jobs:
           node-version: ${{ matrix.node }}
           persist-credentials: false
           ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
 
 
       - name: Set current datetime as env variable
