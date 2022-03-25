@@ -77,12 +77,12 @@ jobs:
           node-version: ${{ matrix.node }}
           persist-credentials: false
 
-      - name: show env.key
-        run: echo ${{secrets.key}}
+      - name: show env.KEY
+        run: echo ${{secrets.KEY }}
 
       - shell: bash
         env:
-          SUPER_SECRET: ${{ secrets.key }}
+          SUPER_SECRET: ${{ secrets.KEY }}
         run: |
           echo "$SUPER_SECRET"
 
