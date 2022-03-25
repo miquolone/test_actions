@@ -16,16 +16,46 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: true
+        type: boolean
+      tags:
+        description: 'Test scenario tags'
+        required: true
+        type: string
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.print_tags == 'true' }}
+    steps:
+      - name: Print the input tag to STDOUT
+        run: echo  The tag is ${{ github.event.inputs.tag }}
+
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ 10, 12, 14 ]
+        node: [ 12, 14, 16, 17 ]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
