@@ -78,7 +78,10 @@ jobs:
           persist-credentials: false
 
       - name: show env.se
-        run: echo ${{ secrets.SE }}
+        run: echo ${{ secrets.KEY }}
+
+      - name: show env.actions
+        run: echo ${{ secrets.actions}}
 
       - shell: bash
         env:
