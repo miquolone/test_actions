@@ -92,7 +92,7 @@ jobs:
         run: |
           ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitHub -q -N github_pass_phrase_aiueo
           ls ~/.ssh/
-          git remote set-url origin git@github.com:miquolone/test.git
+          # git remote set-url origin git@github.com:miquolone/test.git
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git branch -a
           git config -l
