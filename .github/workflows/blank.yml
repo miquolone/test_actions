@@ -89,7 +89,7 @@ jobs:
         run: |
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git push origin fix/hoge_${{ env.CURRENT_DATETIME }}
-          git show 
+          git config -l
 
       - name: show env.se
         run: echo ${{ secrets.KEY }}
