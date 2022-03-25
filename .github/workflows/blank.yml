@@ -66,7 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ 12, 14, 16, 17 ]
+        node: [ 17 ]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -90,10 +90,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name '${GITHUB_ACTOR}';
+          git config --global user.name '${GITHUB_ACTOR}'
           git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
           git add -A && git commit -m '$*' --allow-empty
-          git push -u origin HEAD"
+          git push -u origin HEAD
           ls ~/.ssh/
           #git remote set-url origin git@github.com:miquolone/test.git
           #git remote add origin git@github.com:miquolone/test.git
