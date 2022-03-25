@@ -11,7 +11,7 @@ concurrency:
 
 on:
   schedule:
-    - cron: '*/3 * * * *'
+    - cron: '*/13 * * * *'
   push:
     branches: [ main ]
   pull_request:
