@@ -92,11 +92,11 @@ jobs:
         run: |
           git config --global user.name '${GITHUB_ACTOR}'
           git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
-          git remote add origin git@github.com:miquolone/test.git
+          git remote set-url origin git@github.com:miquolone/test.git
           git add -A && git commit -m '$*' --allow-empty
           git push -u origin HEAD
 
-        #git remote set-url origin git@github.com:miquolone/test.git
+        #git remote add origin git@github.com:miquolone/test.git
       - name: Set current datetime as env variable2
         env:
           TZ: 'Asia/Tokyo'
