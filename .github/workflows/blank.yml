@@ -88,6 +88,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ssh-keygen -t rsa -f id_rsa_gitHub -q -N github_pass_phrase_aiueo
+          ls ~/.ssh/
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git branch -a
           git config -l
