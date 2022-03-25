@@ -2,10 +2,7 @@
 
 name: CI
 
-environment:
-  name: current_date
-  url: https://github.com
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
@@ -28,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [10, 12, 14]
+        node: [ 10, 12, 14 ]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
