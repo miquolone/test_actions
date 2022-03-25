@@ -87,9 +87,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git show 
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git push -u origin fix/hoge_${{ env.CURRENT_DATETIME }}
-
 
       - name: show env.se
         run: echo ${{ secrets.KEY }}
