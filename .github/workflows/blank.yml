@@ -73,7 +73,7 @@ jobs:
         with:
           # The Node.js version to configure
           node-version: ${{ matrix.node }}
-          persist-credentials: false
+          persist-credentials: true
 #          persistCredentials: false
           ref: ${{ github.head_ref }}
           fetch-depth: 0
