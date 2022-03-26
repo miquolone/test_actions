@@ -74,8 +74,8 @@ jobs:
           # The Node.js version to configure
           node-version: ${{ matrix.node }}
           persist-credentials: false
-          #ref: ${{ github.head_ref }}
-          #fetch-depth: 0
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Set current datetime as env variable
         env:
