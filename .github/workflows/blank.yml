@@ -94,7 +94,7 @@ jobs:
             && git add -A && git commit -m 'abc' --allow-empty \
             && git branch -a \
             && git config -l \
-            && git push origin fix/hoge_${{ env.CURRENT_DATETIME }} \
+            && git push origin fix/hoge_${{ env.CURRENT_DATETIME }}" \
 
 
       #git remote add origin git@github.com:miquolone/test.git
