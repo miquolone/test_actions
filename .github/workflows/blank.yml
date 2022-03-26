@@ -9,7 +9,7 @@ concurrency:
 
 on:
   schedule:
-    - cron: '*/33 * * * *'
+    - cron: '*/5 * * * * *'
   push:
     branches: [ main ]
   pull_request:
@@ -89,9 +89,9 @@ jobs:
         run: |
           git config --global user.name '${GITHUB_ACTOR}'
           git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
-          git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}_first
+          git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first
           git add -A && git commit -m 'abc' --allow-empty
-          git push origin fix/hoge_${{ env.CURRENT_DATETIME }}_first
+          git push origin release/ABC_${{ env.CURRENT_DATETIME }}_first
 
       # echo ~/.git/config
       # git rm --cached test
@@ -110,10 +110,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "Mona Lisa"
-          git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}_second
+          git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_second
           git branch -a
           git config -l
-          git push origin fix/hoge_${{ env.CURRENT_DATETIME }}_second
+          git push origin release/ABC_${{ env.CURRENT_DATETIME }}_second
         #ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitHub -q -N github_pass_phrase_aiueo
         # ls ~/.ssh/
 
@@ -122,7 +122,7 @@ jobs:
         env:
           PR_TITLE: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: fix/hoge_${{ env.CURRENT_DATETIME }}
+          branch: release/ABC_${{ env.CURRENT_DATETIME }}
           message: ${{ env.PR_TITLE }}
       #          add: ${{ env.JSON_FILE_PATH }}
 
@@ -132,7 +132,7 @@ jobs:
           DEST_BRANCH: "main"
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: fix/hoge_${{ env.CURRENT_DATETIME }}_first
+          source_branch: release/ABC_${{ env.CURRENT_DATETIME }}_first
           destination_branch: ${{ env.DEST_BRANCH }}
           pr_title: ${{ env.PR_TITLE }}
           pr_template: ${{ env.PR_TEMPLATE }}
