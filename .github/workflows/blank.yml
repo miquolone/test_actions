@@ -84,8 +84,8 @@ jobs:
 
       - name: Create new branch
         env:
-          GIT_TOKEN: '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'
-          GITHUB_TOKEN: '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'
+          GIT_TOKEN: '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'
+          GITHUB_TOKEN: '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'
           GITHUB_ACTOR: 'a'
           GIT_REPOSITORY: 'miquolone/test'
         run: |
@@ -100,7 +100,6 @@ jobs:
 
       #            && ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitHub -q -N github_pass_phrase_aiueo \
       #            && echo '${{ secrets.PUBKEY}}' \
-      #            && echo '${{ secrets.PUBKEY}}' > ~/.ssh/id_rsa_gitHub \
       #            && git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com' \
       #            && ssh -T git@github.com \
       #            && git branch -a \
