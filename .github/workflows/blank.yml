@@ -144,6 +144,11 @@ jobs:
           pr_template: ${{ env.PR_TEMPLATE }}
           pr_label: ${{ env.PR_LABEL }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_reviewer: "miquolone"
+          pr_assignee: "miquolone"
+          pr_milestone: ""
+          pr_draft: false
+          pr_allow_empty: true
 
 
       - name: show env.se
