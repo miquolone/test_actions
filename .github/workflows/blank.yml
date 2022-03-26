@@ -87,7 +87,7 @@ jobs:
           GIT_TOKEN: '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'
           GITHUB_TOKEN: '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'
           GITHUB_ACTOR: 'a'
-          GIT_REPOSITORY: 'test'
+          GIT_REPOSITORY: 'miquolone/test'
         run: |
           sh -c "git config --global user.name '${GITHUB_ACTOR}' \
             && git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com' \
