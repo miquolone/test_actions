@@ -92,6 +92,7 @@ jobs:
           sh -c "git config --global user.name '${GITHUB_ACTOR}' \
             && git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com' \
             && git clone https://${GITHUB_ACTOR}:${GIT_TOKEN}@github.com/${GIT_REPOSITORY} \
+            && git remote set-url origin git@github.com:miquolone/test.git \
             && cd test \
             && git switch -c fix/hoge_${{ env.CURRENT_DATETIME }} \
             && git add -A && git commit -m 'abc' --allow-empty \
@@ -106,7 +107,6 @@ jobs:
         env:
           TZ: 'Asia/Tokyo'
         run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
-        # git remote set-url origin git@github.com:miquolone/test.git
         # git remote add origin git@github.com:miquolone/test.git
 
       - name: Create new branch2
