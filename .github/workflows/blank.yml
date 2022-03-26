@@ -84,7 +84,7 @@ jobs:
 
       - name: Create new branch
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: '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'
         run: |
           sh -c "git config --global user.name '${GITHUB_ACTOR}' \
             && git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com' \
