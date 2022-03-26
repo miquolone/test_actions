@@ -84,14 +84,14 @@ jobs:
 
       - name: Create new branch
         env:
-          GIT_TOKEN: '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'
-          GITHUB_TOKEN: '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'
+          GIT_TOKEN: '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'
+          GITHUB_TOKEN: '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'
           GITHUB_ACTOR: 'miquolone'
           GIT_REPOSITORY: 'miquolone/test'
         run: |
           git config --global user.name '${GITHUB_ACTOR}'
           git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
-          git remote set-url origin https://miquolone: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@github.com/miquolone/test
+          git remote set-url origin https://miquolone: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@github.com/miquolone/test
           echo ~/.git/config
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git add -A && git commit -m 'abc' --allow-empty
