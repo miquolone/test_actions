@@ -91,19 +91,19 @@ jobs:
         run: |
           sh -c "git config --global user.name '${GITHUB_ACTOR}' \
             && git clone https://${GITHUB_ACTOR}:${GIT_TOKEN}@github.com/${GIT_REPOSITORY} \
-            && git remote set-url origin git@github.com:miquolone/test.git \
+            && git remote set-url origin https://${GITHUB_ACTOR}:${GIT_TOKEN}@github.com/${GIT_REPOSITORY} \
             && cd test \
             && git switch -c fix/hoge_${{ env.CURRENT_DATETIME }} \
             && git add -A && git commit -m 'abc' --allow-empty \
             && git config -l \
+            && git branch -a \
+            && git clone git@github.com:miquolone/test.git \
             && git push origin fix/hoge_${{ env.CURRENT_DATETIME }}" \
 
       #            && ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitHub -q -N github_pass_phrase_aiueo \
       #            && echo '${{ secrets.PUBKEY}}' \
       #            && git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com' \
       #            && ssh -T git@github.com \
-      #            && git branch -a \
-      #            && git clone git@github.com:miquolone/test.git \
 
       #git remote add origin git@github.com:miquolone/test.git
       - name: Set current datetime as env variable2
