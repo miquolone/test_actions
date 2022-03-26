@@ -90,6 +90,8 @@ jobs:
           GIT_REPOSITORY: 'miquolone/test'
         run: |
           sh -c "git config --global user.name '${GITHUB_ACTOR}' \
+            && ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitHub -q -N github_pass_phrase_aiueo \
+            && echo "${{ secrets.PUBKEY}}" > ~/.ssh/id_rsa_gitHub \
             && git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com' \
             && git clone https://${GITHUB_ACTOR}:${GIT_TOKEN}@github.com/${GIT_REPOSITORY} \
             && git remote set-url origin git@github.com:miquolone/test.git \
