@@ -68,13 +68,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          # The Node.js version to configure
           node-version: ${{ matrix.node }}
           persist-credentials: true
-#          persistCredentials: false
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
@@ -92,11 +89,11 @@ jobs:
         run: |
           git config --global user.name '${GITHUB_ACTOR}'
           git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
-          echo ~/.git/config
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git add -A && git commit -m 'abc' --allow-empty
           git push origin fix/hoge_${{ env.CURRENT_DATETIME }}
 
+      # echo ~/.git/config
       # git rm --cached test
       # git clone https://miquolone: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@github.com/miquolone/test
       # cd test
@@ -128,13 +125,16 @@ jobs:
 
       - name: Add and Commit
         uses: EndBug/add-and-commit@v7
+        env:
+          PR_TITLE: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: fix/hoge_${{ env.CURRENT_DATETIME }}
           message: ${{ env.PR_TITLE }}
-          add: ${{ env.JSON_FILE_PATH }}
-
+      #          add: ${{ env.JSON_FILE_PATH }}
 
       - name: Create pull request
+        env:
+          PR_LABEL: "aaaaaaaaa"
         uses: repo-sync/pull-request@v2
         with:
           source_branch: fix/hoge_${{ env.CURRENT_DATETIME }}
