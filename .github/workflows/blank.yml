@@ -93,7 +93,6 @@ jobs:
           git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
           git remote set-url origin https://miquolone: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@github.com/miquolone/test
           echo ~/.git/config
-          cd test
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git add -A && git commit -m 'abc' --allow-empty
           git push origin fix/hoge_${{ env.CURRENT_DATETIME }}
