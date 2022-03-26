@@ -135,6 +135,7 @@ jobs:
       - name: Create pull request
         env:
           PR_LABEL: "aaaaaaaaa"
+          DEST_BRANCH: "main"
         uses: repo-sync/pull-request@v2
         with:
           source_branch: fix/hoge_${{ env.CURRENT_DATETIME }}
