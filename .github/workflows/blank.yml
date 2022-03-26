@@ -90,8 +90,11 @@ jobs:
         run: |
           sh -c "git config --global user.name '${GITHUB_ACTOR}' \
             && git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com' \
+            && git switch -c fix/hoge_${{ env.CURRENT_DATETIME }} \
             && git add -A && git commit -m 'abc' --allow-empty \
-            && git push -u origin HEAD"
+            && git branch -a \
+            && git config -l \
+            && git push origin fix/hoge_${{ env.CURRENT_DATETIME }} \
 
 
       #git remote add origin git@github.com:miquolone/test.git
