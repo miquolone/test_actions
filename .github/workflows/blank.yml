@@ -89,9 +89,9 @@ jobs:
         run: |
           git config --global user.name '${GITHUB_ACTOR}'
           git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
-          git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
+          git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}_first
           git add -A && git commit -m 'abc' --allow-empty
-          git push origin fix/hoge_${{ env.CURRENT_DATETIME }}
+          git push origin fix/hoge_${{ env.CURRENT_DATETIME }}_first
 
       # echo ~/.git/config
       # git rm --cached test
@@ -138,7 +138,7 @@ jobs:
           DEST_BRANCH: "main"
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: fix/hoge_${{ env.CURRENT_DATETIME }}
+          source_branch: fix/hoge_${{ env.CURRENT_DATETIME }}_first
           destination_branch: ${{ env.DEST_BRANCH }}
           pr_title: ${{ env.PR_TITLE }}
           pr_template: ${{ env.PR_TEMPLATE }}
