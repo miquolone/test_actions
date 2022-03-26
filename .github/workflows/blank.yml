@@ -92,7 +92,9 @@ jobs:
           git config --global user.name '${GITHUB_ACTOR}'
           git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
 
+          git rm --cached test
           git clone https://miquolone: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@github.com/miquolone/test
+          cd test
           echo ~/.git/config
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git add -A && git commit -m 'abc' --allow-empty
