@@ -86,7 +86,7 @@ jobs:
         env:
           GIT_TOKEN: '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'
           GITHUB_TOKEN: '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'
-          GITHUB_ACTOR: 'a'
+          GITHUB_ACTOR: 'miquolone'
           GIT_REPOSITORY: 'miquolone/test'
         run: |
           git config --global user.name '${GITHUB_ACTOR}'
