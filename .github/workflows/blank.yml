@@ -91,12 +91,13 @@ jobs:
         run: |
           git config --global user.name '${GITHUB_ACTOR}'
           git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
-          git remote set-url origin https://miquolone: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@github.com/miquolone/test
+          git clone https://miquolone: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@github.com/miquolone/test
           echo ~/.git/config
           git switch -c fix/hoge_${{ env.CURRENT_DATETIME }}
           git add -A && git commit -m 'abc' --allow-empty
           git push origin fix/hoge_${{ env.CURRENT_DATETIME }}
 
+      # git remote set-url origin https://miquolone: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@github.com/miquolone/test
       # git clone https://${GITHUB_ACTOR}:${GIT_TOKEN}@github.com/${GIT_REPOSITORY}
       # git config -l
       # git branch -a
