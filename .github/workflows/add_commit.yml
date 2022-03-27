@@ -9,6 +9,14 @@ concurrency:
 
 on:
   workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
+
 jobs:
 
   build:
