@@ -28,7 +28,7 @@ jobs:
         env:
           PR_TITLE: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: release/ABC_${{ env.CURRENT_DATETIME }}
+          branch: release/ABC_${{ inputs.datetime }}
           message: ${{ env.PR_TITLE }}
 
       - name: Create pull request [プルリクエストを作る]
