@@ -72,7 +72,7 @@ jobs:
           echo ${CURRENT_DATETIME} ${current_date}
           echo "(1) ths is env=$ENV_1"
           echo "ENV_1=ENV_3" >> $GITHUB_ENV
-          echo "::set-output name=make_current_time::${current_date}"
+          echo "::set-output name=test::${current_date}"
 
       - name: Set current datetime as env variable
         run: |
@@ -90,7 +90,7 @@ jobs:
     steps:
       - name: show time on release step
         run: |
-          echo ${{needs.maketime.outputs.output1}}
+          echo "nnn: ${{needs.maketime.outputs.output1}}"
           echo ${current_date}
           echo "(2) ths is env=$ENV_1"
 
