@@ -29,7 +29,7 @@ jobs:
     environment: production
     if: ${{ github.event.inputs.print_tags == 'true' }}
     steps:
-      - uses: ./.github/workflows/blank
+      - uses: ./.github/workflows/blank@main
       - name: show env.se
         run: |
           echo  The tag is ${{ github.event.inputs.tag }}
