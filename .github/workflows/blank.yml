@@ -168,4 +168,4 @@ jobs:
           echo test, and deploy your project.
 
       - name: run release
-        run: hub release -m "${{ env.CURRENT_DATETIME }}" -t  "tag_${{ env.CURRENT_DATETIME }}"
+        run: hub release create -m "${{ env.CURRENT_DATETIME }}" -t  "tag_${{ env.CURRENT_DATETIME }}"
