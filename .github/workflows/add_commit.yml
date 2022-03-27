@@ -23,9 +23,9 @@ jobs:
     steps:
 
       - name: show time
-        env:
-          datetime: ${{inputs.datetime}}
         run: echo ${datetime}
+        with:
+          datetime: ${{inputs.datetime}}
 
       - uses: actions/checkout@v2
 
@@ -41,10 +41,9 @@ jobs:
         env:
           PR_LABEL: "aaaaaaaaa"
           DEST_BRANCH: "main"
-          datetime: ${{ inputs.datetime}}
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: release/ABC_${{ env.datetime }}_first
+          source_branch: release/ABC_${{ inputs.datetime }}_first
           destination_branch: ${{ env.DEST_BRANCH }}
           pr_title: ${{ env.PR_TITLE }}
           pr_template: ${{ env.PR_TEMPLATE }}
