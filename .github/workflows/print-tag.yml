@@ -32,3 +32,14 @@ jobs:
     if: ${{ github.event.inputs.print_tags == 'true' }}
     steps:
       - uses: ./.github/workflows/blank@main
+#        run: |
+#          echo  The tag is ${{ github.event.inputs.tag }}
+#          echo ${{ secrets.KEY }}
+#          echo ${{ secrets.actions}}
+#          echo "$SUPER_SECRET"
+#          echo Hello, world!
+        with:
+          username: ${{ inputs.username }}
+          token: ${{ secrets.token }}
+        env:
+          SUPER_SECRET: ${{ secrets.KEY }}
