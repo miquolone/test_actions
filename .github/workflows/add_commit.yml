@@ -23,10 +23,9 @@ jobs:
     steps:
 
       - name: show time
-        run: echo ${{inputs.datetime}}
+        run: echo "time is::${{inputs.datetime}}"
 
       - uses: actions/checkout@v2
-
       - name: Add and Commit [commitを追加する]
         uses: EndBug/add-and-commit@v7
         env:
