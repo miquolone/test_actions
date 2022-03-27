@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ 17, 16 ]
+        node: [ 16 ]
 
     steps:
       - name: Add and Commit [commitを追加する]
