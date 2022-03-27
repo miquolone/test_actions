@@ -84,7 +84,7 @@ jobs:
     name: link to 1
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/print-tag
+      - uses: ./.github/workflows/print-tag.yml
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}
