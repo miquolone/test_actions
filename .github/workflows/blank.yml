@@ -68,6 +68,9 @@ jobs:
           TZ: 'Asia/Tokyo'
         run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
+      - name: show time
+        run: echo ${CURRENT_DATETIME}
+
   release:
     runs-on: ubuntu-latest
     steps:
