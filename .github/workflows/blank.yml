@@ -58,16 +58,14 @@ jobs:
       - name: Print the input tag to STDOUT
         run: echo  The tag is ${{ github.event.inputs.tag }}
 
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  release:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ 17 ]
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
+      - name: Set current datetime as env variable
+        env:
+          TZ: 'Asia/Tokyo'
+        run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
       - name: Set current datetime as env variable
         env:
@@ -91,6 +89,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 17, 16 ]
+
+    steps:
 
       - name: Create new branch
         env:
