@@ -78,7 +78,9 @@ jobs:
 
 
       - name: show time 2
-        run: echo ${CURRENT_DATETIME} ${current_date}
+        run: |
+          echo "(2) ths is env=$ENV_1
+          echo ${CURRENT_DATETIME} ${current_date}
 
   release:
     runs-on: ubuntu-latest
