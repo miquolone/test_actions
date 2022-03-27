@@ -3,10 +3,6 @@
 
 name: CI_D
 
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
-
 on:
   workflow_call:
     inputs:
