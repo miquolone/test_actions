@@ -23,9 +23,7 @@ jobs:
     steps:
 
       - name: show time
-        run: echo ${datetime}
-        with:
-          datetime: ${{inputs.datetime}}
+        run: echo ${{inputs.datetime}}
 
       - uses: actions/checkout@v2
 
