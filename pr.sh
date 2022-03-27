@@ -27,6 +27,7 @@ if [[ -z "$GITHUB_REPOSITORY" ]]; then
   exit 1
 fi
 
+echo "a"
 git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@${GITHUB_SERVER_URL#https://}/$GITHUB_REPOSITORY"
 git fetch origin '+refs/heads/*:refs/heads/*' --update-head-ok
 git --no-pager branch -a -vv
