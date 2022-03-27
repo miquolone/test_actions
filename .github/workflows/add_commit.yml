@@ -6,6 +6,9 @@ name: CI_D
 on:
   workflow_call:
     inputs:
+      datetime:
+        required: true
+        type: string
       username:
         required: true
         type: string
@@ -19,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Add and Commit [commitを追加する]
         uses: EndBug/add-and-commit@v7
         env:
@@ -33,7 +37,7 @@ jobs:
           DEST_BRANCH: "main"
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: release/ABC_${{ env.CURRENT_DATETIME }}_first
+          source_branch: release/ABC_${{ env.datetime }}_first
           destination_branch: ${{ env.DEST_BRANCH }}
           pr_title: ${{ env.PR_TITLE }}
           pr_template: ${{ env.PR_TEMPLATE }}
