@@ -60,6 +60,14 @@ on:
 
 jobs:
 
+  maketime:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set current datetime as env variable
+        env:
+          TZ: 'Asia/Tokyo'
+        run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+
   release:
     runs-on: ubuntu-latest
     steps:
@@ -70,10 +78,6 @@ jobs:
         run: echo "::set-output name=random-id::$(echo $RANDOM)"
         shell: bash
 
-      - name: Set current datetime as env variable
-        env:
-          TZ: 'Asia/Tokyo'
-        run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
       - uses: actions/checkout@v2
         with:
