@@ -8,6 +8,10 @@ on:
 jobs:
 
   print-tag:
+    strategy:
+      matrix:
+        node: [ 16 ]
+
     runs-on: ubuntu-latest
     environment: production
     steps:
