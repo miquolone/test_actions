@@ -28,9 +28,13 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     if: ${{ github.event.inputs.print_tags == 'true' }}
-
     steps:
-      run: |
-        echo  The tag is ${{ github.event.inputs.tag }}
-      secrets:
-        envPAT: ${{ secrets.envPAT }}
+      - name: show env.se
+        run: |
+          echo  The tag is ${{ github.event.inputs.tag }}
+          echo ${{ secrets.KEY }}
+          echo ${{ secrets.actions}}
+          echo "$SUPER_SECRET"
+          echo Hello, world!
+        env:
+          SUPER_SECRET: ${{ secrets.KEY }}
