@@ -72,13 +72,13 @@ jobs:
         run: echo ${CURRENT_DATETIME}
 
       - name: show env on maktime step
-        run: echo ${GITHUB_ENV}
+        run: echo ${GITHUB_ENV.CURRENT_DATETIME}
 
   release:
     runs-on: ubuntu-latest
     steps:
       - name: show time on release step
-        run: echo ${GITHUB_ENV}
+        run: echo ${GITHUB_ENV.CURRENT_DATETIME}
 
       - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
         shell: bash
