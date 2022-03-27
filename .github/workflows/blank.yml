@@ -68,7 +68,6 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
     steps:
       - id: step1
-      - name: show time 1
         run: |
           echo ${CURRENT_DATETIME} ${current_date}
           echo "(1) ths is env=$ENV_1"
