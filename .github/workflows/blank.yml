@@ -113,4 +113,4 @@ jobs:
     with:
       username: ${{ github.event.inputs.username }}
       token: ${{ github.event.secrets.token }}
-      datetime: ${{ current_date}}
+      datetime: ${{ github.env.CURRENT_DATETIME }}
