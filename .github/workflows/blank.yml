@@ -81,7 +81,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   call-workflow-passing-data:
-    uses: .github/workflows/print-tag.yml
+    uses: .github/workflows/print-tag.yml@main
     with:
       username: ${{ inputs.username }}
       token: ${{ secrets.token }}
