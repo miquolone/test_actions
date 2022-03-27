@@ -1,0 +1,18 @@
+## Printするだけ
+
+name: CI_C
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  workflow_call:
+
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.print_tags == 'true' }}
+    steps:
+      - name: Print the input tag to STDOUT
+        run: echo  The tag is ${{ github.event.inputs.tag }}

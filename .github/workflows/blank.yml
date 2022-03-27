@@ -49,23 +49,11 @@ on:
           - "14"
           - "16"
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  print-tag:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.print_tags == 'true' }}
-    steps:
-      - name: Print the input tag to STDOUT
-        run: echo  The tag is ${{ github.event.inputs.tag }}
 
   release:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Set current datetime as env variable
-        env:
-          TZ: 'Asia/Tokyo'
-        run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
       - name: Set current datetime as env variable
         env:
@@ -86,9 +74,25 @@ jobs:
           done
           tag_name="${CURRENT_DATETIME}${GITHUB_REF##*/}"
           hub release create "${assets[@]}" -pm "$tag_name" "$tag_name"
+          echo "::group::My title"
+          echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+          echo "::endgroup::"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  example_jobA1:
+    name: link to 1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/print-tag
+        with:
+          username: ${{ inputs.username }}
+          token: ${{ secrets.token }}
+
+      - uses: ./.github/workflows/print-tag
+        with:
+          username: ${{ inputs.username }}
+          token: ${{ secrets.token }}
 
 
   build:
@@ -98,54 +102,15 @@ jobs:
         node: [ 17, 16 ]
 
     steps:
-
-      - name: Create new branch
-        env:
-          GIT_TOKEN: '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'
-          GITHUB_TOKEN: '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'
-          GITHUB_ACTOR: 'miquolone'
-          GIT_REPOSITORY: 'miquolone/test'
-        run: |
-          git config --global user.name '${{env.GITHUB_ACTOR}}'
-          git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
-          git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first
-          git add -A && git commit -m 'abc' --allow-empty
-          git push origin release/ABC_${{ env.CURRENT_DATETIME }}_first
-
-      # echo ~/.git/config
-      # git rm --cached test
-      # git clone https://miquolone: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@github.com/miquolone/test
-      # cd test
-      # git remote set-url origin https://miquolone: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@github.com/miquolone/test
-      # git clone https://${env.GITHUB_ACTOR}:${GIT_TOKEN}@github.com/${GIT_REPOSITORY}
-      # git config -l
-      # git branch -a
-      #            && ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitHub -q -N github_pass_phrase_aiueo \
-      #            && ssh -T git@github.com \
-
-      #git remote add origin git@github.com:miquolone/test.git
-      - name: Create new branch2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.name "Mona Lisa"
-          git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_second
-          git branch -a
-          git config -l
-          git push origin release/ABC_${{ env.CURRENT_DATETIME }}_second
-        #ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitHub -q -N github_pass_phrase_aiueo
-        # ls ~/.ssh/
-
-      - name: Add and Commit
+      - name: Add and Commit [commitを追加する]
         uses: EndBug/add-and-commit@v7
         env:
           PR_TITLE: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: release/ABC_${{ env.CURRENT_DATETIME }}
           message: ${{ env.PR_TITLE }}
-      #          add: ${{ env.JSON_FILE_PATH }}
 
-      - name: Create pull request
+      - name: Create pull request [プルリクエストを作る]
         env:
           PR_LABEL: "aaaaaaaaa"
           DEST_BRANCH: "main"
@@ -163,25 +128,11 @@ jobs:
           pr_draft: false
           pr_allow_empty: true
 
-
       - name: show env.se
-        run: echo ${{ secrets.KEY }}
-
-      - name: show env.actions
-        run: echo ${{ secrets.actions}}
-
-      - shell: bash
+        run: |
+          echo ${{ secrets.KEY }}
+          echo ${{ secrets.actions}}
+          echo "$SUPER_SECRET"
+          echo Hello, world!
         env:
           SUPER_SECRET: ${{ secrets.KEY }}
-        run: |
-          echo "$SUPER_SECRET"
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
