@@ -62,6 +62,7 @@ env:
 jobs:
 
   maketime:
+    timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
       - name: show time 1
@@ -113,4 +114,4 @@ jobs:
     with:
       username: ${{ github.event.inputs.username }}
       token: ${{ github.event.secrets.token }}
-      datetime: ${{env.current_date}}
+      datetime: ${{github.env.current_date}}
