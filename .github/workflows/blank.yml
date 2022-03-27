@@ -64,16 +64,16 @@ jobs:
   maketime:
     runs-on: ubuntu-latest
     steps:
+      - name: show time 1
+        run: echo ${CURRENT_DATETIME} {env.current_date}
+
       - name: Set current datetime as env variable
         env:
           TZ: 'Asia/Tokyo'
         run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
-      - name: show time
-        run: echo ${CURRENT_DATETIME}
-
-      - name: show env on maktime step
-        run: echo ${CURRENT_DATETIME}
+      - name: show time 2
+        run: echo ${CURRENT_DATETIME} {env.current_date}
 
   release:
     runs-on: ubuntu-latest
