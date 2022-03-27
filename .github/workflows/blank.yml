@@ -63,6 +63,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+        shell: bash
+
+      - id: random-number-generator
+        run: echo "::set-output name=random-id::$(echo $RANDOM)"
+        shell: bash
 
       - name: Set current datetime as env variable
         env:
