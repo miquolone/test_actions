@@ -53,6 +53,10 @@ on:
           - "12"
           - "14"
           - "16"
+    outputs:
+      random-number:
+        description: "Random number"
+        value: 3
 
 jobs:
 
