@@ -8,11 +8,29 @@ concurrency:
 
 on:
   workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+    secrets:
+      envPAT:
+        required: true
 
 jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 17, 16 ]
+
   print-tag:
     runs-on: ubuntu-latest
+    environment: production
     if: ${{ github.event.inputs.print_tags == 'true' }}
+
     steps:
-      - name: Print the input tag to STDOUT
-        run: echo  The tag is ${{ github.event.inputs.tag }}
+      run: |
+        echo  The tag is ${{ github.event.inputs.tag }}
+      secrets:
+        envPAT: ${{ secrets.envPAT }}
