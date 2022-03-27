@@ -69,7 +69,7 @@ jobs:
         run: |
           echo ${CURRENT_DATETIME} ${current_date}
           echo "(1) ths is env=$ENV_1"
-          echo "ENV_1=ENV_1" >> $GITHUB_ENV
+          echo "ENV_1=ENV_3" >> $GITHUB_ENV
 
       - name: Set current datetime as env variable
         env:
