@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
       - uses: ./.github/workflows/blank@main
         #        run: |
         #          echo  The tag is ${{ github.event.inputs.tag }}
