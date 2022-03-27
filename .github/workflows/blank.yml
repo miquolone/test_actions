@@ -101,5 +101,5 @@ jobs:
   call-workflow-commit-data:
     uses: ./.github/workflows/add_commit.yml
     with:
-      username: ${{ inputs.username }}
-      token: ${{ secrets.token }}
+      username: ${{ github.event.inputs.username }}
+      token: ${{ github.event.secrets.token }}
