@@ -26,6 +26,10 @@ jobs:
         node: [ 17, 16 ]
 
     steps:
+      - uses: ./.github/workflows/blank@main
+        run: |
+          echo Hello, world!
+
       - name: Add and Commit [commitを追加する]
         uses: EndBug/add-and-commit@v7
         env:
