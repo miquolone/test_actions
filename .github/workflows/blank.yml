@@ -57,7 +57,8 @@ on:
       random-number:
         description: "Random number"
         value: 3
-
+    env:
+      current_date: "123456789"
 jobs:
 
   maketime:
