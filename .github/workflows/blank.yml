@@ -88,10 +88,10 @@ jobs:
     secrets:
       envPAT: ${{ secrets.envPAT }}
 
-  call-workflow-commit-data:
-    uses: ./.github/workflows/add_commmit.yml
-    with:
-      username: ${{ inputs.username }}
-      token: ${{ secrets.token }}
-    secrets:
-      envPAT: ${{ secrets.envPAT }}
+#  call-workflow-commit-data:
+#    uses: ./.github/workflows/add_commmit.yml
+#    with:
+#      username: ${{ inputs.username }}
+#      token: ${{ secrets.token }}
+#    secrets:
+#      envPAT: ${{ secrets.envPAT }}
