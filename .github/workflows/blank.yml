@@ -91,7 +91,7 @@ jobs:
           for asset in ./*.md; do
             assets+=("-a" "$asset")
           done
-          tag_name="${ GITHUB_ENV.CURRENT_DATETIME }${ GITHUB_REF##*/ }"
+          tag_name="${ env.CURRENT_DATETIME }${ GITHUB_REF##*/ }"
           hub release create "${assets[@]}" -pm "$tag_name" "$tag_name"
           echo "::group::My title"
           echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
