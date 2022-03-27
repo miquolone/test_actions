@@ -79,15 +79,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show time on release step
-        run: echo ${env}
-
-      - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
-        shell: bash
+        run: echo ${current_date}
 
       - id: random-number-generator
         run: echo "::set-output name=random-id::$(echo $RANDOM)"
         shell: bash
-
 
       - uses: actions/checkout@v2
         with:
@@ -101,7 +97,7 @@ jobs:
           for asset in ./*.md; do
             assets+=("-a" "$asset")
           done
-          tag_name="${ CURRENT_DATETIME }${ GITHUB_REF##*/ }"
+          tag_name="${ current_date }${ GITHUB_REF##*/ }"
           hub release create "${assets[@]}" -pm "$tag_name" "$tag_name"
           echo "::group::My title"
           echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
