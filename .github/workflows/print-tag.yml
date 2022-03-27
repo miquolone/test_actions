@@ -1,6 +1,6 @@
 ## Printするだけ
 
-name: CI_C
+name: print-tag
 
 on:
   workflow_call:

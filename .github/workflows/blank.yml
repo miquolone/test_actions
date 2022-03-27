@@ -98,8 +98,8 @@ jobs:
   call-workflow-passing-data:
     uses: ./.github/workflows/print-tag.yml
 
-#  call-workflow-commit-data:
-#    uses: ./.github/workflows/add_commit.yml
-#    with:
-#      username: ${{ github.event.inputs.username }}
-#      token: ${{ github.event.secrets.token }}
+  call-workflow-commit-data:
+    uses: ./.github/workflows/add_commit.yml
+    with:
+      username: ${{ github.event.inputs.username }}
+      token: ${{ github.event.secrets.token }}
