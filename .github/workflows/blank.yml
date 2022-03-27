@@ -86,7 +86,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show time on release step
-        run: echo ${current_date}
+        run: |
+          echo ${current_date}
+          echo "(2) ths is env=$ENV_1"
 
       - name: show github env
         run: echo ${{github.env}}
