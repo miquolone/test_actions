@@ -181,4 +181,7 @@ jobs:
           echo test, and deploy your project.
 
       - uses: actions/checkout@v2
-      - run: hub release create absssssssssssc -pm "${{ env.CURRENT_DATETIME }}" -t  "tag_${{ env.CURRENT_DATETIME }}"
+      - run: |
+          hub release create absssssssssssc -pm "${{ env.CURRENT_DATETIME }}" -t  "tag_${{ env.CURRENT_DATETIME }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
