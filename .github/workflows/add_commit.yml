@@ -13,9 +13,9 @@ on:
       username:
         required: true
         type: string
-      secrets:
-        token:
-          required: true
+      token:
+        required: true
+        type: string
 
 jobs:
 
