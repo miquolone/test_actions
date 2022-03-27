@@ -71,6 +71,9 @@ jobs:
       - name: show time
         run: echo ${CURRENT_DATETIME}
 
+      - name: show env on maktime step
+        run: echo ${GITHUB_ENV}
+
   release:
     runs-on: ubuntu-latest
     steps:
