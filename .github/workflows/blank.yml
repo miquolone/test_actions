@@ -81,7 +81,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   call-workflow-passing-data:
-    uses: .github/workflows/print-tag.yml@main
+    uses: ./.github/workflows/print-tag.yml@main
     with:
       username: ${{ inputs.username }}
       token: ${{ secrets.token }}
@@ -89,7 +89,7 @@ jobs:
       envPAT: ${{ secrets.envPAT }}
 
   call-workflow-commit-data:
-    uses: .github/workflows/add_commmit.yml@main
+    uses: ./.github/workflows/add_commmit.yml@main
     with:
       username: ${{ inputs.username }}
       token: ${{ secrets.token }}
