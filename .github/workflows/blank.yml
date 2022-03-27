@@ -169,7 +169,9 @@ jobs:
 
       - name: run release
         run: hub release create -m "${{ env.CURRENT_DATETIME }}" -t  "tag_${{ env.CURRENT_DATETIME }}"
-      - run: |
+
+      - name: run release2
+        run: |
           set -x
           assets=()
           for asset in ./*.md; do
