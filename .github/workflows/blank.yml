@@ -82,6 +82,9 @@ jobs:
       - name: show time on release step
         run: echo ${current_date}
 
+      - name: show github env
+        run: echo ${{github.env}}
+
       - id: random-number-generator
         run: echo "::set-output name=random-id::$(echo $RANDOM)"
         shell: bash
