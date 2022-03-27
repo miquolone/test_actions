@@ -68,6 +68,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
+      - name: Set current datetime as env variable
+        env:
+          TZ: 'Asia/Tokyo'
+        run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+
       - uses: actions/checkout@v2
       - run: |
           set -x
@@ -75,7 +81,7 @@ jobs:
           for asset in ./*.md; do
             assets+=("-a" "$asset")
           done
-          tag_name="${GITHUB_REF##*/}"
+          tag_name="${CURRENT_DATETIME}${GITHUB_REF##*/}"
           hub release create "${assets[@]}" -pm "$tag_name" "$tag_name"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -86,11 +92,6 @@ jobs:
           persist-credentials: true
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-
-      - name: Set current datetime as env variable
-        env:
-          TZ: 'Asia/Tokyo'
-        run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
       - name: Create new branch
         env:
