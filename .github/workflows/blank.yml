@@ -167,9 +167,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: run release
-        run: hub release create -m "${{ env.CURRENT_DATETIME }}" -t  "tag_${{ env.CURRENT_DATETIME }}"
-
       - name: run release2
         run: |
           set -x
@@ -181,3 +178,6 @@ jobs:
           hub release create "${assets[@]}" -p "$tag_name" "$tag_name"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: run release
+        run: hub release create -m "${{ env.CURRENT_DATETIME }}" -t  "tag_${{ env.CURRENT_DATETIME }}"
