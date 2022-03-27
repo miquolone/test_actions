@@ -27,7 +27,6 @@ jobs:
         uses: EndBug/add-and-commit@v7
         env:
           PR_TITLE: ${{ secrets.GITHUB_TOKEN }}
-          datetime: ${{ inputs.datetime}}
         with:
           branch: release/ABC_${{ inputs.datetime }}
           message: ${{ env.PR_TITLE }}
@@ -36,6 +35,7 @@ jobs:
         env:
           PR_LABEL: "aaaaaaaaa"
           DEST_BRANCH: "main"
+          datetime: ${{ inputs.datetime}}
         uses: repo-sync/pull-request@v2
         with:
           source_branch: release/ABC_${{ env.datetime }}_first
