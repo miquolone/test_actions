@@ -107,4 +107,4 @@ jobs:
     with:
       username: ${{ github.event.inputs.username }}
       token: ${{ github.event.secrets.token }}
-      datetime: ${{ GITHUB_ENV.CURRENT_DATETIME }}
+      datetime: ${{ github.event.CURRENT_DATETIME }}
