@@ -93,5 +93,3 @@ jobs:
     with:
       username: ${{ inputs.username }}
       token: ${{ secrets.token }}
-    secrets:
-      envPAT: ${{ secrets.envPAT }}
