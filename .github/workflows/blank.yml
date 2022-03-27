@@ -66,12 +66,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show time 1
-        run: echo ${CURRENT_DATETIME} ${current_date}
+        run: |
+          echo ${CURRENT_DATETIME} ${current_date}
+          echo "(1) ths is env=$ENV_1"
+          echo "ENV_1=$ENV_1" >> $GITHUB_ENV
 
       - name: Set current datetime as env variable
         env:
           TZ: 'Asia/Tokyo'
-        run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+        run: |
+          echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+          echo "(2) ths is env=$ENV_1"
+
 
       - name: show time 2
         run: echo ${CURRENT_DATETIME} ${current_date}
