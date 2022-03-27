@@ -72,8 +72,6 @@ jobs:
           echo "ENV_1=ENV_3" >> $GITHUB_ENV
 
       - name: Set current datetime as env variable
-        env:
-          TZ: 'Asia/Tokyo'
         run: |
           echo "(2) ths is env=$ENV_1"
           echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
