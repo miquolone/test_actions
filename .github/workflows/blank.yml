@@ -64,18 +64,21 @@ jobs:
   maketime:
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
     steps:
+      - id: step1
       - name: show time 1
         run: |
           echo ${CURRENT_DATETIME} ${current_date}
           echo "(1) ths is env=$ENV_1"
           echo "ENV_1=ENV_3" >> $GITHUB_ENV
+          echo "::set-output name=make_current_time::${current_date}"
 
       - name: Set current datetime as env variable
         run: |
           echo "(2) ths is env=$ENV_1"
           echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
-
 
       - name: show time 2
         run: |
@@ -83,10 +86,12 @@ jobs:
           echo ${CURRENT_DATETIME} ${current_date}
 
   release:
+    needs: maketime
     runs-on: ubuntu-latest
     steps:
       - name: show time on release step
         run: |
+          echo ${{needs.maketime.outputs.output1}}
           echo ${current_date}
           echo "(2) ths is env=$ENV_1"
 
