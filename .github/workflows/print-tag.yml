@@ -14,10 +14,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - uses: ./.github/workflows/blank@main
-        #        run: |
-        #          echo  The tag is ${{ github.event.inputs.tag }}
-        #          echo ${{ secrets.KEY }}
-        #          echo ${{ secrets.actions}}
-        #          echo "$SUPER_SECRET"
-        #          echo Hello, world!
+#      - uses: ./.github/workflows/blank@main
+        run: |
+          echo  The tag is ${{ github.event.inputs.tag }}
+          echo ${{ secrets.KEY }}
+          echo ${{ secrets.actions}}
+          echo "$SUPER_SECRET"
+          echo Hello, world!
