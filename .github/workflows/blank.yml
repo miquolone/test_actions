@@ -126,6 +126,7 @@ jobs:
           for asset in ./*.md; do
             assets+=("-a" "$asset")
           done
+          
           echo "maketimeで作った時間1: ${{needs.maketime.outputs.output1}}"
           echo "maketimeで作った時間2: ${{needs.maketime.outputs.output2}}"
           echo ${{needs.maketime.outputs.output2}}
