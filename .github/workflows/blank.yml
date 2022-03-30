@@ -128,7 +128,7 @@ jobs:
           done
           echo "maketimeで作った時間1: ${{needs.maketime.outputs.output1}}"
           echo "maketimeで作った時間2: ${{needs.maketime.outputs.output2}}"
-          ${{needs.maketime.outputs.output2}}
+          echo ${{needs.maketime.outputs.output2}}
           echo "maketimeで作った時間3: ${{needs.maketime.outputs.output3}}"
           echo ${{needs.maketime.outputs.output1}}
           tag_name="${ steps.step1.outputs.test }${GITHUB_REF##*/}"
