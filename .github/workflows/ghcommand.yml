@@ -18,7 +18,7 @@ jobs:
       #    PR_URL: ${{github.event.pull_request.html_url}}
       #    GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Clone repo
-        run |
+        run: |
           gh repo clone miquolone/test_actions
 
 
