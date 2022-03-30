@@ -6,6 +6,9 @@ name: CI_CREATE_BRANCH
 on:
   workflow_call:
     inputs:
+      datetime:
+        required: true
+        type: string
       username:
         required: true
         type: string
