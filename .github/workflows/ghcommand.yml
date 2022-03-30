@@ -21,15 +21,10 @@ jobs:
       #  env:
       #    PR_URL: ${{github.event.pull_request.html_url}}
       #    GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - name: Clone repo
+      - name: Clone repo and Create a release and attach files
         run: |
           gh repo clone miquolone/test_actions
           cd test_actions
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Create a release and attach files
-        run: |
           # tagname="${GITHUB_REF#refs/tags/}"
           gh release create ${{env.branch}}_v2 README.md
         env:
