@@ -9,9 +9,6 @@ on:
       datetime:
         required: true
         type: string
-    secrets:
-      token:
-        required: true
 
 jobs:
 

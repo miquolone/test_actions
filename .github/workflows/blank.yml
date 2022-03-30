@@ -155,7 +155,7 @@ jobs:
     uses: ./.github/workflows/create_branch.yml
     with:
       datetime: ${{needs.maketime.outputs.output2}}
-      secrets: ${{ github.event.secrets}}
+      token: ${{ github.event.secrets.token }}
 
   call-workflow-commit-data:
     needs: maketime
