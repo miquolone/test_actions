@@ -12,11 +12,11 @@ jobs:
   run_gh_command:
     runs-on: ubuntu-latest
     steps:
-      - name: Enable auto-merge for new PRs
-        run: gh pr merge --auto --merge "$PR_URL"
-        env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      #- name: Enable auto-merge for new PRs
+      #  run: gh pr merge --auto --merge "$PR_URL"
+      #  env:
+      #    PR_URL: ${{github.event.pull_request.html_url}}
+      #    GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Create a release and attach files
         run: |
