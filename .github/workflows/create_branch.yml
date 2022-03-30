@@ -13,9 +13,6 @@ on:
       token:
         required: true
     outputs:
-      datetime:
-        required: true
-        type: string
 
 jobs:
 
