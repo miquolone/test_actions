@@ -109,7 +109,7 @@ jobs:
         run: echo "::set-output name=random-id::$(echo $RANDOM)"
         shell: bash
 
-      - id: run at main branche
+      - id: run-at-main-branche
         if: github.ref == 'refs/heads/main'
         run: echo "::set-output name=random-id::$(echo $RANDOM)"
         shell: bash
