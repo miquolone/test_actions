@@ -154,7 +154,7 @@ jobs:
     needs: maketime
     uses: ./.github/workflows/create_branch.yml
     with:
-      datetime: ${{needs.maketime.outputs.output2}}abc
+      datetime: ${{needs.maketime.outputs.output2}}
 
   call-workflow-commit-data:
     needs: maketime
