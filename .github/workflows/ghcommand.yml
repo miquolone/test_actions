@@ -20,7 +20,7 @@ jobs:
       - name: Clone repo
         run: |
           gh repo clone miquolone/test_actions
-          cd ${GITHUB_REPOSITORY}
+          cd test_actions
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
