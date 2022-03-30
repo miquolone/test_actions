@@ -66,6 +66,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       output1: ${{ steps.step1.outputs.test }}
+      output2: ${{ steps.step2.outputs.current_datetime }}
+      output3: ${{ steps.step3.outputs.step3_output}}
     steps:
       - id: step1
         run: |
@@ -74,15 +76,19 @@ jobs:
           echo "ENV_1=ENV_3" >> $GITHUB_ENV
           echo "::set-output name=test::${current_date}"
 
-      - name: Set current datetime as env variable
+      - id: step2
+        name: Set current datetime as env variable
         run: |
           echo "(2) ths is env=$ENV_1"
           echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+          echo "::set-output name=current_datetime::${CURRENT_DATETIME}"
 
-      - name: show time 2
+      - id: step3
+        name: show time 2
         run: |
           echo "(2) ths is env=$ENV_1"
           echo ${CURRENT_DATETIME} ${current_date}
+          echo "::set-output name=step3_output::'step3_output'"
 
   release:
     needs: maketime
@@ -90,7 +96,9 @@ jobs:
     steps:
       - name: show time on release step
         run: |
-          echo "maketimeで作った時間: ${{needs.maketime.outputs.output1}}"
+          echo "maketimeで作った時間1: ${{needs.maketime.outputs.output1}}"
+          echo "maketimeで作った時間2: ${{needs.maketime.outputs.output2}}"
+          echo "maketimeで作った時間3: ${{needs.maketime.outputs.output3}}"
           echo ${current_date}
           echo "(2) ths is env=$ENV_1"
 
