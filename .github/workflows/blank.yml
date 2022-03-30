@@ -148,4 +148,4 @@ jobs:
     with:
       username: ${{ github.event.inputs.username }}
       token: ${{ github.event.secrets.token }}
-      datetime: ${{${{needs.maketime.outputs.output2}}}}
+      datetime: ${{needs.maketime.outputs.output2}}
