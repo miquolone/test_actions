@@ -1,7 +1,7 @@
 # コミットするだけ
 
 
-name: CI_D
+name: CI_COMMIT
 
 on:
   workflow_call:
@@ -40,7 +40,7 @@ jobs:
           DEST_BRANCH: "main"
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: release/ABC_${{ inputs.datetime }}_first
+          source_branch: release/ABC_${{ inputs.datetime }}_first_v1
           destination_branch: ${{ env.DEST_BRANCH }}
           pr_title: ${{ env.PR_TITLE }}
           pr_template: ${{ env.PR_TEMPLATE }}
