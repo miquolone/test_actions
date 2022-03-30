@@ -1,5 +1,8 @@
 name: CI_CREATE_BRANCH
 
+## ブランチを作って、コミットを行い、PRを作るまでの一連の作業を担う
+## 初期制作 ghを用いた他での制作も並行しているが同時にブラッシュアップしている
+
 on:
   workflow_call:
     inputs:
