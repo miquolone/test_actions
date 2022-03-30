@@ -1,5 +1,6 @@
-#  gh commandを実行する
-# ghによりprを作成、 releaseを構築する
+# gh commandを実行する
+# ghによりprを作成、
+# releaseを構築する
 
 
 name: GH_COMMAND
@@ -26,6 +27,7 @@ jobs:
           gh repo clone miquolone/test_actions
           cd test_actions
           # tagname="${GITHUB_REF#refs/tags/}"
+          echo ${{ inputs.datetime }}
           gh release create ${{env.branch}}_v2 README.md
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
