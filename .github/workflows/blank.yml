@@ -9,7 +9,7 @@ concurrency:
 
 on:
   schedule:
-    - cron: '*/50 * * * *'
+    - cron: '50 1 */1 * *'
   push:
     branches: [ main ]
   pull_request:
@@ -146,6 +146,8 @@ jobs:
 
   call-workflow-gh-command:
     uses: ./.github/workflows/ghcommand.yml
+    with:
+      datetime: ${{needs.maketime.outputs.output2}}
 
   call-workflow-commit-data:
     needs: maketime
