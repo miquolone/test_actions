@@ -126,7 +126,8 @@ jobs:
           for asset in ./*.md; do
             assets+=("-a" "$asset")
           done
-          tag_name="${current_date}${GITHUB_REF##*/}"
+          echo ${{ steps.step1.outputs.test }}
+          tag_name="${ steps.step1.outputs.test }${GITHUB_REF##*/}"
           hub release create "${assets[@]}" -pm "$tag_name" "$tag_name"
           echo "::group::My title"
           echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
