@@ -1,0 +1,26 @@
+#  gh commandを実行する
+# ghによりprを作成、 releaseを構築する
+
+
+name: GH_COMMAND
+
+on:
+  workflow_call:
+
+jobs:
+
+  run_gh_command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable auto-merge for new PRs
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Create a release and attach files
+        run: |
+          tagname="${GITHUB_REF#refs/tags/}"
+          gh release create "$tagname" dist/*.tgz
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
