@@ -9,12 +9,13 @@ on:
       datetime:
         required: true
         type: string
-      username:
-        required: true
-        type: string
     secrets:
       token:
         required: true
+    outputs:
+      datetime:
+        required: true
+        type: string
 
 jobs:
 
