@@ -135,7 +135,7 @@ jobs:
           echo ${{needs.maketime.outputs.output1}}
           tag_name="${{ steps.step1.outputs.test }}${GITHUB_REF##*/}"
           tag_name2="${{needs.maketime.outputs.output2}}${GITHUB_REF##*/}"
-          hub release create "${assets[@]}" -pm "$tag_name2" 
+          hub release create "${assets[@]}" -pm "$tag_name2"  
           echo "::group::My title"
           echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
           echo "::endgroup::"
