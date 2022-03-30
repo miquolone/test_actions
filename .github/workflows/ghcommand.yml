@@ -21,6 +21,6 @@ jobs:
       - name: Create a release and attach files
         run: |
           tagname="${GITHUB_REF#refs/tags/}"
-          gh release create "$tagname" dist/*.tgz
+          gh release create "$tagname" src/*.tgz
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
