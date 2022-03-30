@@ -126,7 +126,8 @@ jobs:
           for asset in ./*.md; do
             assets+=("-a" "$asset")
           done
-          echo ${{ steps.step1.outputs.test }}
+          echo "maketimeで作った時間1: ${{needs.maketime.outputs.output1}}"
+          echo ${{needs.maketime.outputs.output1}}
           tag_name="${ steps.step1.outputs.test }${GITHUB_REF##*/}"
           hub release create "${assets[@]}" -pm "$tag_name" "$tag_name"
           echo "::group::My title"
