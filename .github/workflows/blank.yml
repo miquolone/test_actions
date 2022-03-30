@@ -147,7 +147,7 @@ jobs:
   call-workflow-gh-command:
     uses: ./.github/workflows/ghcommand.yml
     with:
-      datetime: ${{needs.maketime.outputs.output2}}
+      datetime: ${{needs.maketime.outputs.output2}}abc
 
   call-workflow-commit-data:
     needs: maketime
