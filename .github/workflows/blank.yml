@@ -81,7 +81,7 @@ jobs:
         run: |
           echo "(2) ths is env=$ENV_1"
           echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
-          echo "::set-output name=current_datetime::${$(date +'%Y%m%d%H%M%S')}"
+          echo "::set-output name=current_datetime::$(date +'%Y%m%d%H%M%S')"
 
       - id: step3
         name: show time 2
