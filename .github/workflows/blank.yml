@@ -81,7 +81,7 @@ jobs:
         run: |
           echo "(2) ths is env=$ENV_1"
           echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
-          echo "::set-output name=current_datetime::${CURRENT_DATETIME}"
+          echo "::set-output name=current_datetime::${$(date +'%Y%m%d%H%M%S')}"
 
       - id: step3
         name: show time 2
@@ -96,9 +96,9 @@ jobs:
     steps:
       - name: show time on release step
         run: |
-          echo "maketimeで作った時間1: ${{needs.maketime.outputs.output1}}"
-          echo "maketimeで作った時間2: ${{needs.maketime.outputs.output2}}"
-          echo "maketimeで作った時間3: ${{needs.maketime.outputs.output3}}"
+          echo "maketimeで作った時間n1: ${{needs.maketime.outputs.output1}}"
+          echo "maketimeで作った時間n2: ${{needs.maketime.outputs.output2}}"
+          echo "maketimeで作った時間n3: ${{needs.maketime.outputs.output3}}"
           echo ${current_date}
           echo "(2) ths is env=$ENV_1"
 
