@@ -27,16 +27,12 @@ jobs:
           
           gh repo clone miquolone/test_actions
           cd test_actions
-          git config --global user.name '${{env.GITHUB_ACTOR}}'
-          git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v1
           git add -A && git commit -m 'abc' --allow-empty
           git push origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v1
 
         env:
           CURRENT_DATETIME: ${{ inputs.datetime }}
-          GITHUB_ACTOR: 'miquolone'
-          GIT_REPOSITORY: 'miquolone/test'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create new branch Type 2
@@ -60,8 +56,13 @@ jobs:
       # cd test
       # git remote set-url origin https://miquolone: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@github.com/miquolone/test
       # git clone https://${env.GITHUB_ACTOR}:${GIT_TOKEN}@github.com/${GIT_REPOSITORY}
+      # git config --global user.name '${{env.GITHUB_ACTOR}}'
+      # git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
       # git config -l
       # git branch -a
       # ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitHub -q -N github_pass_phrase_aiueo
       # ssh -T git@github.com
       #git remote add origin git@github.com:miquolone/test.git
+#        env:
+#          GIT_REPOSITORY: 'miquolone/test'
+#          GITHUB_ACTOR: 'miquolone'
