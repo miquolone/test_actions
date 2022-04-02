@@ -34,7 +34,7 @@ jobs:
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           git add -A && git commit -m 'abc' --allow-empty
           git push origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
-          gh release create ${{env.branch}}_v2 README.md
+          gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
 
         env:
           CURRENT_DATETIME: ${{ inputs.datetime }}
