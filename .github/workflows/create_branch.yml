@@ -28,7 +28,6 @@ jobs:
           echo "github actor is" ${{ env.GITHUB_ACTOR}}
           echo "github actor is" ${{ GITHUB_ACTOR }}
           echo "github actor is" ${ GITHUB_ACTOR }
-          echo "github actor is" $GITHUB_ACTOR
           
           git config --global user.name '${{env.GITHUB_ACTOR}}'
           git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
