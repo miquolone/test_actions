@@ -41,7 +41,6 @@ jobs:
         env:
           CURRENT_DATETIME: ${{ inputs.datetime }}
           GITHUB_ACTOR: 'miquolone'
-        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create new branch Type 2
