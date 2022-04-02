@@ -18,8 +18,29 @@ on:
 
 jobs:
 
+  run_gh_command:
+    runs-on: ubuntu-latest
+    steps:
+      #- name: Enable auto-merge for new PRs
+      #  run: gh pr merge --auto --merge "$PR_URL"
+      #  env:
+      #    PR_URL: ${{github.event.pull_request.html_url}}
+      #    GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Clone repo and Create a release and attach files
+        run: |
+          gh repo clone miquolone/test_actions
+          cd test_actions
+          # tagname="${GITHUB_REF#refs/tags/}"
+          echo ${{ inputs.datetime }}
+          echo "ghによるリリース作成"
+          gh release create ${{env.branch}}_v3 README.md
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          branch: release/ABC_${{ inputs.datetime }}
+
   build:
-    needs: release
+    needs:
+      - run_gh_command
     runs-on: ubuntu-latest
     steps:
       - name: show time

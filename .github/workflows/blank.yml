@@ -145,11 +145,12 @@ jobs:
   call-workflow-passing-data:
     uses: ./.github/workflows/print-tag.yml
 
-  call-workflow-gh-command:
-    needs: maketime
-    uses: ./.github/workflows/ghcommand.yml
-    with:
-      datetime: ${{needs.maketime.outputs.output2}}
+  # blankに内包した
+  #  call-workflow-gh-command:
+  #    needs: maketime
+  #    uses: ./.github/workflows/ghcommand.yml
+  #    with:
+  #      datetime: ${{needs.maketime.outputs.output2}}
 
   call-workflow-create-branch:
     needs: maketime
