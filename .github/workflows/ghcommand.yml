@@ -29,6 +29,7 @@ jobs:
           # tagname="${GITHUB_REF#refs/tags/}"
           echo ${{ inputs.datetime }}
           echo ${{ env.iii }}
+          echo "ghによるリリース作成"
           gh release create ${{env.branch}}_v2 README.md
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
