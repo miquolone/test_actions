@@ -141,14 +141,14 @@ jobs:
           echo "::endgroup::"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  call-workflow-passing-data:
-    uses: ./.github/workflows/print-tag.yml
-
-  call-workflow-gh-command:
-    needs: maketime
-    uses: ./.github/workflows/ghcommand.yml
-    with:
-      datetime: ${{needs.maketime.outputs.output2}}
+#  call-workflow-passing-data:
+#    uses: ./.github/workflows/print-tag.yml
+#
+#  call-workflow-gh-command:
+#    needs: maketime
+#    uses: ./.github/workflows/ghcommand.yml
+#    with:
+#      datetime: ${{needs.maketime.outputs.output2}}
 
   call-workflow-create-branch:
     needs: maketime
@@ -157,10 +157,10 @@ jobs:
       datetime: ${{needs.maketime.outputs.output2}}
       token: ${{ github.event.secrets.token }}
 
-  call-workflow-commit-data:
-    needs: maketime
-    uses: ./.github/workflows/add_commit.yml
-    with:
-      username: ${{ github.event.inputs.username }}
-      token: ${{ github.event.secrets.token }}
-      datetime: ${{needs.maketime.outputs.output2}}
+#  call-workflow-commit-data:
+#    needs: maketime
+#    uses: ./.github/workflows/add_commit.yml
+#    with:
+#      username: ${{ github.event.inputs.username }}
+#      token: ${{ github.event.secrets.token }}
+#      datetime: ${{needs.maketime.outputs.output2}}
