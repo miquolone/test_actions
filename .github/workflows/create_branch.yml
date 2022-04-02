@@ -23,31 +23,31 @@ jobs:
 
     steps:
       - name: Create new branch
-        env:
-          GIT_TOKEN: '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'
-          GITHUB_TOKEN: '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'
-          GITHUB_ACTOR: 'miquolone'
-          GIT_REPOSITORY: 'miquolone/test'
         run: |
           
           gh repo clone miquolone/test_actions
           cd test_actions
-          
           git config --global user.name '${{env.GITHUB_ACTOR}}'
           git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v1
           git add -A && git commit -m 'abc' --allow-empty
           git push origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v1
+        env:
+          GITHUB_ACTOR: 'miquolone'
+          GIT_REPOSITORY: 'miquolone/test'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create new branch Type 2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          gh repo clone miquolone/test_actions
+          cd test_actions
           git config --global user.name "Mona Lisa"
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_second
           git branch -a
           git config -l
           git push origin release/ABC_${{ env.CURRENT_DATETIME }}_second
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitHub -q -N github_pass_phrase_aiueo
       # ls ~/.ssh/
