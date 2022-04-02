@@ -33,36 +33,42 @@ jobs:
           # tagname="${GITHUB_REF#refs/tags/}"
           echo ${{ inputs.datetime }}
           echo "ghによるリリース作成"
-          gh release create ${{env.branch}}_v3 README.md
+          gh release create ${{env.branch}} README.md
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          branch: release/ABC_${{ inputs.datetime }}
+          branch: release/ABC_${{ inputs.datetime }}_maked_blank_v3
 
   build:
     needs:
       - run_gh_command
     runs-on: ubuntu-latest
     steps:
-      - name: show time
+      - name: show time [ callもとで作成している時間の表示 ]
         run: echo "time is::${{inputs.datetime}}"
 
-      - uses: actions/checkout@v2
+
+      - uses: actions/checkout@v2 [checkout@v2を使ったclone処理]
+        run: echo "なにもしない？"
+
+
       - name: Add and Commit [commitを追加する]
         uses: EndBug/add-and-commit@v7
         env:
           PR_TITLE: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: release/ABC_${{ inputs.datetime }}
+          branch: release/ABC_${{ inputs.datetime }}_maked_blank_v3
           message: ${{ env.PR_TITLE }}
+
 
       - name: Create pull request [プルリクエストを作る]
         env:
           PR_LABEL: ${inputs.datetime}_PullRequest
           DEST_BRANCH: "main"
+          branch: release/ABC_${{ inputs.datetime }}_maked_blank_v3
         uses: repo-sync/pull-request@v2
         with:
-          ### 多分この段階でfirst_v3ができていない
-          source_branch: release/ABC_${{ inputs.datetime }}_first_v3
+          ### 多分この段階でfirst_v3ができていないので、前段をおいてみる
+          source_branch: ${{ env.branch }}
           destination_branch: ${{ env.DEST_BRANCH }}
           pr_title: ${{ env.PR_TITLE }}
           pr_template: ${{ env.PR_TEMPLATE }}
@@ -74,7 +80,8 @@ jobs:
           pr_draft: false
           pr_allow_empty: true
 
-      - name: show env.se
+
+      - name: show env.se [envを表示してみる]
         run: |
           echo ${{ secrets.KEY }}
           echo ${{ secrets.actions}}
