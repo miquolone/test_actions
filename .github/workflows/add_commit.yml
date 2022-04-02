@@ -43,10 +43,14 @@ jobs:
       - run_gh_command
     runs-on: ubuntu-latest
     steps:
+
+      - name: checkout [ checkout@v2を使ったclone処理 ]
+        uses: actions/checkout@v2
+
       - name: show time [ callもとで作成している時間の表示 ]
         run: echo "time is::${{inputs.datetime}}"
 
-      - name: Add and Commit [commitを追加する] [checkout@v2を使ったclone処理]
+      - name: Add and Commit [commitを追加する]
         uses: EndBug/add-and-commit@v7
         env:
           PR_TITLE: ${{ secrets.GITHUB_TOKEN }}
