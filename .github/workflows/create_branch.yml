@@ -23,7 +23,6 @@ jobs:
 
     steps:
       - name: Create new branch
-      - uses: actions/checkout@v2
         run: |
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
           echo "github actor is" ${{ env.GITHUB_ACTOR }}
@@ -37,7 +36,8 @@ jobs:
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           git add -A && git commit -m 'abc' --allow-empty
           git push origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
-          gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
+
+#          gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
 
         env:
           GITHUB_ACTOR: 'miquolone'
