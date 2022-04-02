@@ -152,12 +152,12 @@ jobs:
 #      datetime: ${{needs.maketime.outputs.output2}}
 
 ### これはうまく行っていない
-#  call-workflow-create-branch:
-#    needs: maketime
-#    uses: ./.github/workflows/create_branch.yml
-#    with:
-#      datetime: ${{needs.maketime.outputs.output2}}
-#      token: ${{ github.event.secrets.token }}
+  call-workflow-create-branch:
+    needs: maketime
+    uses: ./.github/workflows/create_branch.yml
+    with:
+      datetime: ${{needs.maketime.outputs.output2}}
+      token: ${{ github.event.secrets.token }}
 
   call-workflow-commit-data:
     needs: maketime
