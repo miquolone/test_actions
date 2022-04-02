@@ -25,8 +25,7 @@ jobs:
       - name: Create new branch
         run: |
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
-          echo "github actor is" ${{ env.GITHUB_ACTOR}}
-          echo "github actor is" ${{ GITHUB_ACTOR }}
+          echo "github actor is" ${ env.GITHUB_ACTOR }
           
           git config --global user.name '${{env.GITHUB_ACTOR}}'
           git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
@@ -40,6 +39,7 @@ jobs:
           gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
 
         env:
+          GITHUB_ACTOR: 'miquolone'
           CURRENT_DATETIME: ${{ inputs.datetime }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
