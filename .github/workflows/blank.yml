@@ -142,16 +142,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-#  call-workflow-passing-data:
-#    uses: ./.github/workflows/print-tag.yml
+  call-workflow-passing-data:
+    uses: ./.github/workflows/print-tag.yml
 
-#  call-workflow-gh-command:
-#    needs: maketime
-#    uses: ./.github/workflows/ghcommand.yml
-#    with:
-#      datetime: ${{needs.maketime.outputs.output2}}
+  call-workflow-gh-command:
+    needs: maketime
+    uses: ./.github/workflows/ghcommand.yml
+    with:
+      datetime: ${{needs.maketime.outputs.output2}}
 
-### これはうまく行っていない
   call-workflow-create-branch:
     needs: maketime
     uses: ./.github/workflows/create_branch.yml
