@@ -32,7 +32,9 @@ jobs:
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v1
           git add -A && git commit -m 'abc' --allow-empty
           git push origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v1
+
         env:
+          CURRENT_DATETIME: ${{ inputs.datetime }}
           GITHUB_ACTOR: 'miquolone'
           GIT_REPOSITORY: 'miquolone/test'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,6 +49,7 @@ jobs:
           git config -l
           git push origin release/ABC_${{ env.CURRENT_DATETIME }}_second
         env:
+          CURRENT_DATETIME: ${{ inputs.datetime }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # ssh-keygen -t rsa -f ~/.ssh/id_rsa_gitHub -q -N github_pass_phrase_aiueo
