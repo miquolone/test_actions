@@ -151,17 +151,18 @@ jobs:
 #    with:
 #      datetime: ${{needs.maketime.outputs.output2}}
 
-  call-workflow-create-branch:
-    needs: maketime
-    uses: ./.github/workflows/create_branch.yml
-    with:
-      datetime: ${{needs.maketime.outputs.output2}}
-      token: ${{ github.event.secrets.token }}
-
-#  call-workflow-commit-data:
+### これはうまく行っていない
+#  call-workflow-create-branch:
 #    needs: maketime
-#    uses: ./.github/workflows/add_commit.yml
+#    uses: ./.github/workflows/create_branch.yml
 #    with:
-#      username: ${{ github.event.inputs.username }}
-#      token: ${{ github.event.secrets.token }}
 #      datetime: ${{needs.maketime.outputs.output2}}
+#      token: ${{ github.event.secrets.token }}
+
+  call-workflow-commit-data:
+    needs: maketime
+    uses: ./.github/workflows/add_commit.yml
+    with:
+      username: ${{ github.event.inputs.username }}
+      token: ${{ github.event.secrets.token }}
+      datetime: ${{needs.maketime.outputs.output2}}
