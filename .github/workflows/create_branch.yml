@@ -25,6 +25,9 @@ jobs:
       - name: Create new branch
         run: |
           
+          git config --global user.name '${{env.GITHUB_ACTOR}}'
+          git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
+          
           gh repo clone miquolone/test_actions
           cd test_actions
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v1
@@ -34,6 +37,8 @@ jobs:
         env:
           CURRENT_DATETIME: ${{ inputs.datetime }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_REPOSITORY: 'miquolone/test'
+          GITHUB_ACTOR: 'miquolone'
 
       - name: Create new branch Type 2
         run: |
