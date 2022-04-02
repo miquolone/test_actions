@@ -19,9 +19,9 @@ on:
 jobs:
 
   build:
+    needs: release
     runs-on: ubuntu-latest
     steps:
-
       - name: show time
         run: echo "time is::${{inputs.datetime}}"
 
@@ -40,6 +40,7 @@ jobs:
           DEST_BRANCH: "main"
         uses: repo-sync/pull-request@v2
         with:
+          ### 多分この段階でfirst_v3ができていない
           source_branch: release/ABC_${{ inputs.datetime }}_first_v3
           destination_branch: ${{ env.DEST_BRANCH }}
           pr_title: ${{ env.PR_TITLE }}
