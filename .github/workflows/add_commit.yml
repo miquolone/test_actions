@@ -48,8 +48,6 @@ jobs:
 
 
       - uses: actions/checkout@v2 [checkout@v2を使ったclone処理]
-
-
       - name: Add and Commit [commitを追加する]
         uses: EndBug/add-and-commit@v7
         env:
@@ -67,7 +65,7 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           ### 多分この段階でfirst_v3ができていないので、前段をおいてみる
-          source_branch: ${{ env.branch }}
+          source_branch:  ${{ env.branch }}
           destination_branch: ${{ env.DEST_BRANCH }}
           pr_title: ${{ env.PR_TITLE }}
           pr_template: ${{ env.PR_TEMPLATE }}
@@ -79,8 +77,7 @@ jobs:
           pr_draft: false
           pr_allow_empty: true
 
-
-      - name: show env.se [envを表示してみる]
+      - name: show env.se
         run: |
           echo ${{ secrets.KEY }}
           echo ${{ secrets.actions}}
