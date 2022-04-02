@@ -46,9 +46,6 @@ jobs:
       - name: show time [ callもとで作成している時間の表示 ]
         run: echo "time is::${{inputs.datetime}}"
 
-
-      - uses: actions/checkout@v2
-
       - name: Add and Commit [commitを追加する] [checkout@v2を使ったclone処理]
         uses: EndBug/add-and-commit@v7
         env:
@@ -66,7 +63,7 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           ### 多分この段階でfirst_v3ができていないので、前段をおいてみる
-          source_branch:  ${{ env.branch }}
+          source_branch: ${{ env.branch }}
           destination_branch: ${{ env.DEST_BRANCH }}
           pr_title: ${{ env.PR_TITLE }}
           pr_template: ${{ env.PR_TEMPLATE }}
