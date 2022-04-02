@@ -24,8 +24,8 @@ jobs:
     steps:
       - name: Create new branch
         run: |
-          echo "token is " ${{ github.event.secrets.token }}
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
+          echo "github actor is" ${{ env.GITHUB_ACTOR}}
           
           git config --global user.name '${{env.GITHUB_ACTOR}}'
           git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
@@ -40,7 +40,6 @@ jobs:
 
         env:
           CURRENT_DATETIME: ${{ inputs.datetime }}
-          GITHUB_ACTOR: 'miquolone'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create new branch Type 2
@@ -73,4 +72,3 @@ jobs:
       #git remote add origin git@github.com:miquolone/test.git
 #        env:
 #          GIT_REPOSITORY: 'miquolone/test'
-#          GITHUB_ACTOR: 'miquolone'
