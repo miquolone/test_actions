@@ -61,6 +61,7 @@ jobs:
 
       ### この段階で指定ブランチができている必要がある
       - name: Create PR [プルリクエストを作る]
+        id: open-pr
         env:
           PR_LABEL: ${inputs.datetime}_PullRequest
           DEST_BRANCH: "main"
@@ -78,6 +79,15 @@ jobs:
           pr_milestone: ""
           pr_draft: true
           pr_allow_empty: true
+
+
+      - name: output-url
+        run: echo ${{steps.open-pr.outputs.pr_url}}
+      - name: output-number
+        run: echo ${{steps.open-pr.outputs.pr_number}}
+      - name: output-has-changed-files
+        run: echo ${{steps.open-pr.outputs.has_changed_files}}
+
 
       - name: show env.se
         run: |
