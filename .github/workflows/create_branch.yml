@@ -22,8 +22,18 @@ jobs:
         node: [ 17 ]
 
     steps:
+      - name: Set selected color
+        run: echo '::set-output name=SELECTED_COLOR::green'
+        id: random-color-generator
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+
       - name: Create new branch
         run: |
+          echo "action_state=yellow" >> $GITHUB_ENV
+
+          echo "${{ env.action_state }}" # This will output 'yellow'
+
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
           echo "github actor is" ${{ env.GITHUB_ACTOR }}
           
