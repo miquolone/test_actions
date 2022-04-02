@@ -59,14 +59,14 @@ jobs:
           message: ${{ env.PR_TITLE }}
 
 
-      - name: Create pull request [プルリクエストを作る]
+      ### この段階で指定ブランチができている必要がある
+      - name: Create PR [プルリクエストを作る]
         env:
           PR_LABEL: ${inputs.datetime}_PullRequest
           DEST_BRANCH: "main"
           branch: release/ABC_${{ inputs.datetime }}_maked_blank_v3
         uses: repo-sync/pull-request@v2
         with:
-          ### 多分この段階でfirst_v3ができていないので、前段をおいてみる
           source_branch: ${{ env.branch }}
           destination_branch: ${{ env.DEST_BRANCH }}
           pr_title: ${{ env.PR_TITLE }}
@@ -76,7 +76,7 @@ jobs:
           pr_reviewer: "miquolone"
           pr_assignee: "miquolone"
           pr_milestone: ""
-          pr_draft: false
+          pr_draft: true
           pr_allow_empty: true
 
       - name: show env.se
