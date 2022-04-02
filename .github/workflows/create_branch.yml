@@ -29,6 +29,10 @@ jobs:
           GITHUB_ACTOR: 'miquolone'
           GIT_REPOSITORY: 'miquolone/test'
         run: |
+          
+          gh repo clone miquolone/test_actions
+          cd test_actions
+          
           git config --global user.name '${{env.GITHUB_ACTOR}}'
           git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v1
