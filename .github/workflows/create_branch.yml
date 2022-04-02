@@ -40,6 +40,9 @@ jobs:
           CURRENT_DATETIME: ${{ inputs.datetime }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: 'miquolone'
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.event.secrets.token }}
 
       - name: Create new branch Type 2
         run: |
