@@ -33,7 +33,7 @@ jobs:
           
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           git add -A && git commit -m 'abc' --allow-empty
-          gh push origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
+          git push origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           gh release create ${{env.branch}}_v2 README.md
 
         env:
