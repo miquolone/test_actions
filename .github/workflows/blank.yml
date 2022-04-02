@@ -90,57 +90,57 @@ jobs:
           echo ${CURRENT_DATETIME} ${current_date}
           echo "::set-output name=step3_output::'step3_output'"
 
-  release:
-    needs: maketime
-    runs-on: ubuntu-latest
-    steps:
-      - name: show time on release step
-        run: |
-          echo "maketimeで作った時間n1: ${{needs.maketime.outputs.output1}}"
-          echo "maketimeで作った時間n2: ${{needs.maketime.outputs.output2}}"
-          echo "maketimeで作った時間n3: ${{needs.maketime.outputs.output3}}"
-          echo ${current_date}
-          echo "(2) ths is env=$ENV_1"
+#  release:
+#    needs: maketime
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: show time on release step
+#        run: |
+#          echo "maketimeで作った時間n1: ${{needs.maketime.outputs.output1}}"
+#          echo "maketimeで作った時間n2: ${{needs.maketime.outputs.output2}}"
+#          echo "maketimeで作った時間n3: ${{needs.maketime.outputs.output3}}"
+#          echo ${current_date}
+#          echo "(2) ths is env=$ENV_1"
 
-      - name: show github env
-        run: echo ${{github.env}}
+#      - name: show github env
+#        run: echo ${{github.env}}
 
-      - id: random-number-generator
-        run: echo "::set-output name=random-id::$(echo $RANDOM)"
-        shell: bash
+#      - id: random-number-generator
+#        run: echo "::set-output name=random-id::$(echo $RANDOM)"
+#        shell: bash
 
-      - id: run-at-main-branche
-        if: github.ref == 'refs/heads/main'
-        run: echo "::set-output name=random-id::$(echo $RANDOM)"
-        shell: bash
+#      - id: run-at-main-branche
+#        if: github.ref == 'refs/heads/main'
+#        run: echo "::set-output name=random-id::$(echo $RANDOM)"
+#        shell: bash
 
-      - uses: actions/checkout@v2
-        with:
-          node-version: ${{ matrix.node }}
-          persist-credentials: true
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-      - run: |
-          set -x
-          assets=()
-          for asset in ./*.md; do
-            assets+=("-a" "$asset")
-          done
-          
-          echo "maketimeで作った時間1: ${{needs.maketime.outputs.output1}}"
-          echo "maketimeで作った時間2: ${{needs.maketime.outputs.output2}}"
-          echo ${{needs.maketime.outputs.output2}}
-          
-          echo "maketimeで作った時間3: ${{needs.maketime.outputs.output3}}"
-          echo ${{needs.maketime.outputs.output1}}
-          tag_name="${{ steps.step1.outputs.test }}${GITHUB_REF##*/}"
-          tag_name2="${{needs.maketime.outputs.output2}}${GITHUB_REF##*/}"
-          hub release create "${assets[@]}" -pm "$tag_name" "$tag_name2"
-          echo "::group::My title"
-          echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
-          echo "::endgroup::"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - uses: actions/checkout@v2
+#        with:
+#          node-version: ${{ matrix.node }}
+#          persist-credentials: true
+#          ref: ${{ github.head_ref }}
+#          fetch-depth: 0
+#      - run: |
+#          set -x
+#          assets=()
+#          for asset in ./*.md; do
+#            assets+=("-a" "$asset")
+#          done
+#
+#          echo "maketimeで作った時間1: ${{needs.maketime.outputs.output1}}"
+#          echo "maketimeで作った時間2: ${{needs.maketime.outputs.output2}}"
+#          echo ${{needs.maketime.outputs.output2}}
+#
+#          echo "maketimeで作った時間3: ${{needs.maketime.outputs.output3}}"
+#          echo ${{needs.maketime.outputs.output1}}
+#          tag_name="${{ steps.step1.outputs.test }}${GITHUB_REF##*/}"
+#          tag_name2="${{needs.maketime.outputs.output2}}${GITHUB_REF##*/}"
+#          hub release create "${assets[@]}" -pm "$tag_name" "$tag_name2"
+#          echo "::group::My title"
+#          echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+#          echo "::endgroup::"
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #  call-workflow-passing-data:
 #    uses: ./.github/workflows/print-tag.yml
 #
