@@ -42,7 +42,7 @@ jobs:
           tag_name2="${{needs.maketime.outputs.output2}}${GITHUB_REF##*/}"
           hub release create "${assets[@]}" -pm "$tag_name" "$tag_name2"
           
-          echo "::group::My title"
+          echo "::group::CreatePullRequest_NodeSameVersions"
           echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
           echo "::endgroup::"
           
