@@ -36,7 +36,16 @@ jobs:
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           git add -A && git commit -m 'abc' --allow-empty
           git push origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
-          gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
+          #gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
+          
+          tag_name="${{ steps.step1.outputs.test }}${GITHUB_REF##*/}"
+          tag_name2="${{needs.maketime.outputs.output2}}${GITHUB_REF##*/}"
+          hub release create "${assets[@]}" -pm "$tag_name" "$tag_name2"
+          
+          echo "::group::My title"
+          echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+          echo "::endgroup::"
+          
 
         env:
           GITHUB_ACTOR: 'miquolone'
