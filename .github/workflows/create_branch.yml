@@ -23,6 +23,7 @@ jobs:
 
     steps:
       - name: Create new branch
+      - uses: actions/checkout@v2
         run: |
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
           echo "github actor is" ${{ env.GITHUB_ACTOR }}
