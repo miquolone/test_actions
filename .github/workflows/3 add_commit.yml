@@ -1,7 +1,7 @@
 # コミットするだけ
 
 
-name: CI_COMMIT
+name: 3 add commit data
 
 on:
   workflow_call:
