@@ -1,6 +1,6 @@
 ## Printするだけ
 
-name: print-tag
+name: 1 print-tag
 
 on:
   workflow_call:

@@ -143,7 +143,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   call-workflow-passing-data:
-    uses: ./.github/workflows/print-tag.yml
+    uses: ./.github/workflows/1print-tag.yml
 
   # blankに内包した
   #  call-workflow-gh-command:
