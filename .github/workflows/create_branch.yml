@@ -4,6 +4,7 @@ name: CI_CREATE_BRANCH
 ## 初期制作 ghを用いた他での制作も並行しているが同時にブラッシュアップしている
 ## コミットは難しいようだ。
 
+
 on:
   workflow_call:
     inputs:
