@@ -20,7 +20,7 @@ on:
     inputs:
       logLevel:
         description: 'Log level'
-        required: true
+        required: false
         default: 'warning'
         type: choice
         options:
@@ -29,21 +29,21 @@ on:
           - debug
       print_tags:
         description: 'True to print to STDOUT'
-        required: true
+        required: false
         type: boolean
       username:
-        description: 'username'
-        default: 'username'
-        required: true
+        description: '実行者'
+        default: '-'
+        required: false
         type: string
       tags:
         description: 'Test scenario tags'
-        required: true
+        required: false
         type: string
       environment:
         description: 'Environment to run tests against'
         type: environment
-        required: true
+        required: false
       node-version:
         description: 'node-version'
         required: true
@@ -163,6 +163,4 @@ jobs:
     needs: maketime
     uses: ./.github/workflows/add_commit.yml
     with:
-      username: ${{ github.event.inputs.username }}
-      token: ${{ github.event.secrets.token }}
       datetime: ${{needs.maketime.outputs.output2}}
