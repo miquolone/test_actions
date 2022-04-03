@@ -3,7 +3,7 @@
 # releaseを構築する
 
 
-name: GH_COMMAND
+name: 4 gh command
 
 on:
   workflow_call:
