@@ -20,7 +20,7 @@ jobs:
   build_create_new_branch_job:
     runs-on: ubuntu-latest
     container: ubuntu:20.04
-#    container: alpine:latest
+    #    container: alpine:latest
     strategy:
       matrix:
         node: [ 17 ]
@@ -53,7 +53,7 @@ jobs:
           
           
           ### 対象のレポジトリを取り込む
-#          gh repo clone miquolone/test_actions
+          #gh repo clone miquolone/test_actions
           cd test_actions
           
           ### ブランチ名を指定
