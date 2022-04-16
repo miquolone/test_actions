@@ -48,7 +48,8 @@ jobs:
           ### 空のコミットだけpushしておく
           git add -A && git commit -m 'make it release' --allow-empty
           git remote set-url origin git@github.com:miquolone/test_actions.git
-#          git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git" gh-pages
+          
+          ### git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git" gh-pages
 
           git push -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           
