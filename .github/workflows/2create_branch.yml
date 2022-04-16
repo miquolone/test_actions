@@ -31,11 +31,11 @@ jobs:
           echo "${{ env.action_state }}" # This will output 'yellow'
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
           echo "github actor is" ${{ env.GITHUB_ACTOR }}
-          echo "github repository is" ${{ env.GITHUB_REPOSITORY }}
-          echo "github repository is" ${{ secrets.GITHUB_REPOSITORY }}
+          echo "github repository is" ${{ env.REPO_NAME}}
+          echo "github repository is" ${{ env.REPO_NAME}}
           
           
-          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${env.REPO_NAME}
           
           ### Gitユーザの設定を行う
           git config --global user.name "${GITHUB_ACTOR}"
@@ -77,6 +77,7 @@ jobs:
 
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+          REPO_NAME: ${{ github.event.repository.name }}
           GITHUB_ACTOR: 'miquolone'
           CURRENT_DATETIME: ${{ inputs.datetime }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
