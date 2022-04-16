@@ -32,7 +32,7 @@ jobs:
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
           echo "github actor is" ${{ env.GITHUB_ACTOR }}
           echo "2secrets.githubtoken is " ${{ GITHUB_TOKEN }}
-          echo "2github actor is" ${{ GITHUB_ACTOR }}
+          echo "github actor is" ${{ GITHUB_ACTOR }}
           
           
           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
