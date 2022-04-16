@@ -31,7 +31,7 @@ jobs:
           apt update && apt install -y git
 
       - name: Obtain Latest Git ONLY within container for checkout
-        run: apk add git --update-cache
+        run: apt add git --update-cache
 
       - name: Checkout Repo Action
         uses: actions/checkout@v2
