@@ -57,6 +57,8 @@ jobs:
           ### git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git" gh-pages
           git config -l
           
+          echo "$GITHUB_CONTEXT"
+          
           ## git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
           ## git remote set-url origin git@github.com:miquolone/test_actions.git
           
@@ -71,7 +73,10 @@ jobs:
           ### リリースは作らなくていいかもしれない
           gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
 
+        shell: bash
+
         env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_ACTOR: 'miquolone'
           CURRENT_DATETIME: ${{ inputs.datetime }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
