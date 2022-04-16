@@ -51,7 +51,8 @@ jobs:
           
           ### git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git" gh-pages
           git config -l
-#          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          
+          ### git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
           git remote set-url origin https://miquolone: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@github.com/miquolone/test_actions
           djgit remote set-url origin git@github.com:miquolone/test_actions.git
 
