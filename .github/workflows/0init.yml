@@ -153,14 +153,14 @@ jobs:
   #    with:
   #      datetime: ${{needs.maketime.outputs.output2}}
 
-  call-workflow-create-branch:
+  call-create-branch:
     needs: maketime
     uses: ./.github/workflows/2create_branch.yml
     with:
       datetime: ${{needs.maketime.outputs.output2}}
       token: ${{ github.event.secrets.token }}
 
-  call-workflow-commit-data:
+  call-commit-data:
     needs: maketime
     uses: ./.github/workflows/3 add_commit.yml
     with:
