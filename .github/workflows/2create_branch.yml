@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Force Install GIT latest
         run: |
-          apt-get update && apt install -y git
+          apt update && apt install -y git
 
       - name: Obtain Latest Git ONLY within container for checkout
         run: apk add git --update-cache
