@@ -100,9 +100,9 @@ jobs:
       - name: Create new branch Type 2
         run: |
           ### リリースは作らなくていいかもしれない
-          ## gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
           #gh repo clone miquolone/test_actions
-          cd test_actions
+          ## gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
+          #cd test_actions
           git config --global user.name "Mona Lisa"
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_second
           git branch -a
