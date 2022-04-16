@@ -40,8 +40,11 @@ jobs:
           gh repo clone miquolone/test_actions
           cd test_actions
           
+          ### ブランチ名を指定
+          
+          branchName = release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           ### 当日の日付でブランチを作る
-          git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
+          git switch -c $branchName
           
           ### 空のコミットだけpushしておく
           git add -A && git commit -m 'make it release' --allow-empty
