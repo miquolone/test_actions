@@ -49,12 +49,12 @@ jobs:
           git add -A && git commit -m 'make it release' --allow-empty
           git remote set-url origin git@github.com:miquolone/test_actions.git
           
-          ### git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git" gh-pages
+          ### git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git" gh-pages
 
           git push -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           
-          git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git" release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
-          echo "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git"
+          git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git" release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
+          echo "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git"
 
           ### リリースは作らなくていいかもしれない
           gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
