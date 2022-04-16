@@ -54,6 +54,7 @@ jobs:
           git push -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           
           git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git" release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
+          echo "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git"
 
           ### リリースは作らなくていいかもしれない
           gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
