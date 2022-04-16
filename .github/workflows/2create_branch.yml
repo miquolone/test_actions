@@ -50,6 +50,7 @@ jobs:
           git remote set-url origin git@github.com:miquolone/test_actions.git
           
           ### git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git" gh-pages
+          git config -l
 
           git push -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           
