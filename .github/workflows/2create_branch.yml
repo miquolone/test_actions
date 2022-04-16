@@ -53,7 +53,7 @@ jobs:
           
           
           ### 対象のレポジトリを取り込む
-          gh repo clone miquolone/test_actions
+#          gh repo clone miquolone/test_actions
           cd test_actions
           
           ### ブランチ名を指定
