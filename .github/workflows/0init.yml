@@ -62,6 +62,7 @@ env:
 
 jobs:
   maketime:
+    name: maketime
     timeout-minutes: 15
     runs-on: ubuntu-latest
     outputs:
