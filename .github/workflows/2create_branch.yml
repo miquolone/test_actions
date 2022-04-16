@@ -47,10 +47,10 @@ jobs:
           
           ### 空のコミットだけpushしておく
           git add -A && git commit -m 'make it release' --allow-empty
-          git push --set-upstream origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
+          git push  -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           
           ### リリースは作らなくていいかもしれない
-          #gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
+          gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
 
         env:
           GITHUB_ACTOR: 'miquolone'
