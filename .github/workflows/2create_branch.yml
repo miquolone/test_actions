@@ -32,9 +32,13 @@ jobs:
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
           echo "github actor is" ${{ env.GITHUB_ACTOR }}
           
+          
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          
           ### Gitユーザの設定を行う
-          git config --global user.name '${{env.GITHUB_ACTOR}}'
-          git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          
           
           ### 対象のレポジトリを取り込む
           gh repo clone miquolone/test_actions
