@@ -152,7 +152,7 @@ jobs:
   #      datetime: ${{needs.maketime.outputs.output2}}
 
   call1-passing-data:
-    needs: [ maketime,release ]
+    needs: [ release ]
     uses: ./.github/workflows/1print-tag.yml
 
   call2-create-branch:
