@@ -19,8 +19,8 @@ jobs:
 
   build_create_new_branch_job:
     runs-on: ubuntu-latest
-#    container: ubuntu:20.04
-    container: alpine:latest
+    container: ubuntu:20.04
+#    container: alpine:latest
     strategy:
       matrix:
         node: [ 17 ]
