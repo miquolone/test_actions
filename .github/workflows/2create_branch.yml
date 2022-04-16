@@ -31,8 +31,7 @@ jobs:
           echo "${{ env.action_state }}" # This will output 'yellow'
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
           echo "github actor is" ${{ env.GITHUB_ACTOR }}
-          echo "secrets.githubtoken is " ${{ env.GITHUB_TOKEN }}
-          echo "github actor is" ${{ env.GITHUB_ACTOR }}
+          echo "github repository is" ${{ env.GITHUB_REPOSITORY }}
           
           
           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
