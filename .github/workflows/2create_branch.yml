@@ -42,9 +42,8 @@ jobs:
           
           ### ブランチ名を指定
           
-          branchName = release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           ### 当日の日付でブランチを作る
-          git switch -c $branchName
+          git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           
           ### 空のコミットだけpushしておく
           git add -A && git commit -m 'make it release' --allow-empty
