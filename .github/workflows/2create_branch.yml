@@ -52,7 +52,7 @@ jobs:
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           
           
-          ### 対象のレポジトリを取り込む
+          ### ghで対象のレポジトリを取り込む
           #gh repo clone miquolone/test_actions
           #cd test_actions
           
@@ -74,14 +74,14 @@ jobs:
           
           git remote set-url origin https://miquolone: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@github.com/miquolone/test_actions
           
-          
+          ### 新しいレポジトリをpushしておく
           git push -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           
           git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git" release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           echo "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git"
 
           ### リリースは作らなくていいかもしれない
-          gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
+          ## gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
 
         shell: bash
 
