@@ -44,6 +44,8 @@ jobs:
           
           
           git remote set-url origin https://github-actions:${{secrets.GITHUB_TOKEN}}@github.com/${{github.event.repository.name}}
+          git config --global --add safe.directory /__w/test_actions/test_actions
+          
           
           ### Gitユーザの設定を行う
           git config --global user.name "${GITHUB_ACTOR}"
