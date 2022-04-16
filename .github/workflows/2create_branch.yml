@@ -33,20 +33,28 @@ jobs:
 
       - name: Create new branch
         run: |
+          
+          ### 表示デバッグ
           echo "${{ env.action_state }}" # This will output 'yellow'
-
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
           echo "github actor is" ${{ env.GITHUB_ACTOR }}
           
+          ### Gitユーザの設定を行う
           git config --global user.name '${{env.GITHUB_ACTOR}}'
           git config --global user.email '${{env.GITHUB_ACTOR}}@users.noreply.github.com'
           
+          ### 対象のレポジトリを取り込む
           gh repo clone miquolone/test_actions
           cd test_actions
           
+          ### 当日の日付でブランチを作る
           git switch -c release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
-          git add -A && git commit -m 'abc' --allow-empty
+          
+          ### 空のコミットだけpushしておく
+          git add -A && git commit -m 'make it release' --allow-empty
           git push origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
+          
+          ### リリースは作らなくていいかもしれない
           #gh release create ${{env.CURRENT_DATETIME }}_v3 README.md
 
         env:
