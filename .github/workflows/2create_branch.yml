@@ -78,7 +78,7 @@ jobs:
           ### 適当なサイトからjsonを取り込んで保持する
           curl -O https://monst.furebo.com/character_name_list.json
           git add character_name_list.json
-          git commit -m 'monstキャラリスト'
+          git commit -m 'add character_name_list.json'
           
           
           ### 新しいレポジトリをpushしておく
