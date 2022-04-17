@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Force Install GIT latest
         run: |
-          apt update && apt install -y git
+          apt update && apt install -y git curl wget
 
       - name: Checkout Repo Action
         uses: actions/checkout@v2
