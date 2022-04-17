@@ -9,7 +9,7 @@ concurrency:
 
 on:
   schedule:
-    - cron: '*/3 * * * *'
+    - cron: '*/23 * * * *'
   push:
     branches: [ main ]
   pull_request:
