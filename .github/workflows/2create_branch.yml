@@ -74,6 +74,12 @@ jobs:
           
           git remote set-url origin https://miquolone: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@github.com/miquolone/test_actions
           
+          
+          ### 適当なサイトからjsonを取り込んで保持する
+          wget https://monst.furebo.com/character_name_list.json
+          git add character_name_list.json
+          
+          
           ### 新しいレポジトリをpushしておく
           git push -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           
