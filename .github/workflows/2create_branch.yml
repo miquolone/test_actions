@@ -41,9 +41,9 @@ jobs:
           echo "secrets.githubtoken is " ${{ secrets.GITHUB_TOKEN }}
           echo "github actor is" ${{ env.GITHUB_ACTOR }}
           echo "github repository is" ${{ github.event.repository.name}}
+          
+          ### config設定
           git config --global --add safe.directory /__w/test_actions/test_actions
-          
-          
           git remote set-url origin https://github-actions:${{secrets.GITHUB_TOKEN}}@github.com/${{github.event.repository.name}}
           
           
