@@ -84,6 +84,9 @@ jobs:
           ### 新しいレポジトリをpushしておく
           git push -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           
+          git switch main
+          git merge release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
+          
           ### git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git" release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           echo "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git"
 
