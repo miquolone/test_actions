@@ -97,7 +97,8 @@ jobs:
       - name: merge master
         shell: bash
         run: |
-          git merge -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
+          # git merge -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
+          ls 
 
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
