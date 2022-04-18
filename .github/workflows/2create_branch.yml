@@ -87,18 +87,8 @@ jobs:
           ### git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git" release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
           echo "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/test_actions.git"
 
-        shell: bash
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          GITHUB_ACTOR: 'miquolone'
-          CURRENT_DATETIME: ${{ inputs.datetime }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: merge master
         shell: bash
-        run: |
-          # git merge -u origin release/ABC_${{ env.CURRENT_DATETIME }}_first_v3
-          ls 
 
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
