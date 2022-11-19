@@ -39,7 +39,7 @@ jobs:
     steps:
 
       - name: checkout [ checkout@v2を使ったclone処理 ]
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: show time [ callもとで作成している時間の表示 ]
         run: echo "time is::${{inputs.datetime}}"
