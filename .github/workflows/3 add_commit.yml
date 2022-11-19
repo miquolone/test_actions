@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: checkout [ checkout@v2を使ったclone処理 ]
+      - name: checkout [ checkout@v3を使ったclone処理 ]
         uses: actions/checkout@v3
 
       - name: show time [ callもとで作成している時間の表示 ]
