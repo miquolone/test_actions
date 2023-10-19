@@ -115,7 +115,7 @@ jobs:
         run: echo "::set-output name=random-id::$(echo $RANDOM)"
         shell: bash
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           node-version: ${{ matrix.node }}
           persist-credentials: true
